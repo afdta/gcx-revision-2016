@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Data Resources at Brookings</title>
+  <link rel="stylesheet" href="eitcstyle.css">
+  <script type="text/javascript" src="angularmin.js"></script>
+  <script type="text/javascript" src="services.js"></script>
+  <script type="text/javascript" src="directives.js"></script>
+  <script type="text/javascript" src="controllers.js"></script>
+  <script type="text/javascript" src="json2.js"></script>
+</head>
+<body>
+<div ng-app="METRODAT" ng-controller="metrodat_ctrl" id="ng-app">
+	
+	<div class="float-left group p100">
+		<div class="resourceBox">
+			<div class="inner" style="background:black;padding:8px;">
+				<h3>Select a metro area</h3>
+				<select ng-model="metroCode" ng-options="m.MCode as m.MetroName for m in metros"></select>
+			</div>
+		</div>
+	</div>
+
+	<div class="float-left group p100">
+		<h3 style="float:left">Select a report</h3>
+
+		<select ng-model="reportID" ng-options="m.PID as m.Product for m in allReports" style="clear:both"></select>
+
+		<div style="clear:both;float:left" class="options">
+			<p style="float:left;margin-right:0px;">Sort dropdown menu by:</p>
+			<input type="checkbox" ng-model="reportSortName" ng-click="updateNameSort($event)" style="float:left"></input>
+			<p style="float:left">Report name</p>
+
+			<input type="checkbox" ng-model="reportSortDate" ng-click="updateDateSort($event)" style="float:left"></input>
+			<p style="float:left">Release date (newest first)</p>
+		</div>
+	</div>
+
+	<div style="border:0px solid #d1d1d1;clear:both;margin:20px 0px 10px 0px;float:left;width:100%" class="group">
+		<h3>Data resources for {{metroName}}</h3>
+		<div profile-gen='r' ng-repeat="r in reports">
+			<a class="profileLink" href={{r|linkBuilder:metro}}>{{metro.FirstCity}} Profile >></a>
+		<div>
+	</div>
+</div>
+
+</body>
+</html>
