@@ -48,30 +48,9 @@ angular.module('METRODAT').controller("metrodat_ctrl",['$scope','$http','filteri
     });
     data = filterie8(data,function(e){return e.Metros || e.Product=="All reports" ? true : false}); //don't include it if there aren't metros
     $scope.allReports = data; //an original, undedited copy of the data
-    $scope.reports = data.slice(0); //for the list of links to profiles
+    $scope.reports = data.slice(0); //for the filterable list of links to profiles
     $scope.report = $scope.reports[0];
     $scope.reportID = $scope.report.PID;
-  });
-
-  //keep all report data in sync
-  //allReports is never changed and is used for the menu 
-  //reports is the array of reports to be used to generate links
-  //report is the first entry in reports and
-  //reportID is used to select reports and report; it is bound in the select ng-model directive 
-  $scope.$watch('reportID',function(newval,oldval){
-    if(typeof $scope.reports !== 'undefined'){
-      if(newval==-1){
-        var a=$scope.allReports.slice(1); //the first element should always be the "all reports" entry -- so select everything after
-      }
-      else{
-        var a = filterie8($scope.allReports,function(e){
-          return e.PID==$scope.reportID ? true : false;
-        });      
-      }
-      $scope.report = a[0];
-      $scope.reports = a;
-      //console.log($scope.reports);
-    }
   });
 
         //Watcher to check on current sort order for reports
@@ -83,8 +62,8 @@ angular.module('METRODAT').controller("metrodat_ctrl",['$scope','$http','filteri
         }
         $scope.$watch(reportSort,function(newval, oldval){
           if(typeof $scope.allReports !== 'undefined'){
-            console.log(newval);
-            $scope.allReports.sort(function(a,b){
+            //console.log(newval);
+            $scope.reports.sort(function(a,b){
               if(a.Product=="All reports"){return -1}
               else if(b.Product=="All reports"){return 1}
               else if(newval.name){return a.Product < b.Product ? -1 : 1;}

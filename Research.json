@@ -258,16 +258,5 @@
 "Nick Marchio" 
 ],
 "Description": "Detailed data on U.S. export production by industry (including both the goods and services sectors) in 2012 and over time." 
-},
-{
- "PID": -1,
-"Product": "All reports",
-"Dir": "",
-"Naming": "",
-"NamingDescriptive": "",
-"States": null,
-"Metros": null,
-"Authors": [],
-"Description": null 
-} 
+}
 ]

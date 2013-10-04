@@ -7,7 +7,7 @@ angular.module('directives',[]).directive('profileGen', ['$rootScope',function($
     replace:true,
     template:'<div class="resourceBox">' +
                '<div class="inner group">' +
-                 '<div style="float:left;margin-top:5px;width:75%">' +
+                 '<div style="float:left;margin-top:5px;width:70%">' +
                    '<h4 class="title"></h4>' +
                    '<p></p>' +
                  '</div>' +
