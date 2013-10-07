@@ -23,7 +23,7 @@ angular.module('services').factory('filterie8',[function(){
 angular.module('services').filter('linkBuilder',[function(){
   function linkit(report,met){
     //console.log(report);
-    //console.log(met);
+    if(typeof report === 'undefined' || typeof met === 'undefined'){return ""};
     var linkstyle = report.Naming;
     var link;
     //start filtering with report specific tests

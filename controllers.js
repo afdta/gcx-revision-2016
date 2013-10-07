@@ -1,4 +1,4 @@
-angular.module('METRODAT', ['directives','services'])
+angular.module('METRODAT', ['directives','services','ngAnimate'])
 
 
 //note the use of array notation for minification -- declares dependencies before declaring constructor function (which could just take dependencies as arguments, but this is more robust)
@@ -69,10 +69,24 @@ angular.module('METRODAT').controller("metrodat_ctrl",['$scope','$http','filteri
               else if(newval.name){return a.Product < b.Product ? -1 : 1;}
               else {return b.PID - a.PID}  
             });
+
+            console.log($scope.reports);
             //$scope.report = $scope.reports[0];
             //$scope.reportID = $scope.report.PID;
           }
         },true)
 
 
+  //KEYWORD SEARCHES
+  $scope.$watch('keyword',function(n,o){
+    console.log(n);
+  })
+
+  console.log($scope);
+
+  $scope.$watch('metkeyword',function(newval,oldval){
+    if(typeof $scope.metkeyword=='undefined'){$scope.metsel = false}
+    else if($scope.metkeyword===""){$scope.metsel = false}
+    else $scope.metsel = true;
+  });
 }]);

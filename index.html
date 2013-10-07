@@ -5,6 +5,7 @@
   <title>Data Resources at Brookings</title>
   <link rel="stylesheet" href="eitcstyle.css">
   <script type="text/javascript" src="angularmin.js"></script>
+  <script type="text/javascript" src="angularanimate.js"></script>
   <script type="text/javascript" src="services.js"></script>
   <script type="text/javascript" src="directives.js"></script>
   <script type="text/javascript" src="controllers.js"></script>
@@ -12,23 +13,30 @@
 </head>
 <body>
 <div ng-app="METRODAT" ng-controller="metrodat_ctrl" id="ng-app">
-	<div>
-		<div class="group" style="margin-top:5px;float:left;border:0px solid #d1d1d1;padding:15px;background:url('squairy_light.png')">
-			<h3>Data Navigator</h3>
-			<select ng-model="metroCode" ng-options="m.MCode as m.MetroName for m in metros"></select>
+	<div style="width:100%">
+		<div class="group" style="margin-top:5px;float:left;border:0px solid #d1d1d1;width:98%;padding-left:1%;padding-right:1%;background:url('squairy_light.png')">
+			<h3>Metropolitan area profiles</h3>
+			<div class="menu group"><input type="text" ng-model="metkeyword" placeholder="Metro area search"></input></div>
+			<!--<div class="menu group"><select ng-model="metroCode" ng-options="m.MCode as m.MetroName for m in metros"></select></div>-->
+			
+			<div ng-show="metsel" style="min-height:30px;width:100%;padding:10px 0px 3px 0px;float:left;clear:both" class="group">
+				<p style="float:left;padding:1px 5px 1px 5px;margin:3px 3px 3px 0px;border:1px solid #d1d1d1;background:#A4B512;cursor:pointer;color:#ffffff;" ng-repeat="m in metros | filter:metkeyword">{{m.ShortName}}</p>
+			</div>
+			
+			<div style="clear:both;float:left;width:100%;height:1px;background:#d1d1d1;border-bottom:1px solid #f5f5f5;margin:10px auto 10px auto;"></div>
+
 			<div style="clear:both;padding-bottom:8px;" class="options group">
+				<div class="menu group"><input type="text" ng-model="keyword" placeholder="Keyword/Author Search"></input></div>
 				<p style="float:left;margin-right:0px;">Sort results by:</p>
 				<input type="checkbox" ng-model="reportSortName" ng-click="updateNameSort($event)" style="float:left"></input>
 				<p style="float:left">Report name</p>
 
 				<input type="checkbox" ng-model="reportSortDate" ng-click="updateDateSort($event)" style="float:left"></input>
 				<p style="float:left">Release date (newest first)</p>
-
-			</div>
-			<div style="width:100%;height:1px;background:#d1d1d1;border-bottom:1px solid #f5f5f5;margin-top:10px;margin-left:auto;margin-right:auto;"></div>
+			</div>		
 
 			<h3></h3>
-			<div profile-gen='r' ng-repeat="r in reports">
+			<div profile-gen='r' ng-repeat="r in reports | filter:keyword">
 				<a class="profileLink" href={{r|linkBuilder:metro}}>{{metro.FirstCity}} Profile >></a>
 			</div>
 		</div>

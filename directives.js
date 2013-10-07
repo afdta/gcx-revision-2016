@@ -17,7 +17,7 @@ angular.module('directives',[]).directive('profileGen', ['$rootScope',function($
                 '</div>' + 
               '</div>',
     link: function lfn(scope, instance, attr){
-      console.log(scope);
+      //console.log(scope);
       var a = angular.element(instance); 
       var t = a.find('h4');
       var p = a.find('p');
@@ -25,8 +25,8 @@ angular.module('directives',[]).directive('profileGen', ['$rootScope',function($
       p.text(scope.rvar.Description);
       //console.log(a);
 
-      var thiz = angular.element(instance[0]);
-      console.log(thiz);
+      //var thiz = angular.element(instance[0]);
+      //console.log(thiz);
       //angular.element(thiz.querySelectorAll('p.title')).text(scope.r.Product);
     } //end link function
   } //end dir object

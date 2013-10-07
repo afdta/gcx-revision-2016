@@ -28,12 +28,12 @@
 #ng-app h4{font-size:12px;padding:3px 3px 3px 0px;margin:2px 0px 2px 0px;}
 #ng-app h5{font-size:12px;text-transform:uppercase;color:rgb(50,50,50);margin:8px 0px 2px 0px;}
 
-#ng-app p,#ng-app select,#ng-app a{
+#ng-app p,#ng-app select,#ng-app a,#ng-app input{
 	font-family: Arial;
-	font-weight:300;
+	font-weight:normal;
 	font-size:12px;
-	padding:3px 3px 3px 0px;
-	margin:2px 0px 2px 0px;
+	padding:0px 0px 0px 0px;
+	margin:0px;
 	line-height:16px;
 	color:rgb(50,50,50);
 	display:block;
@@ -41,22 +41,23 @@
 
 #ng-app p{padding-left:0px;}
 
-#ng-app select{
-	border:1px solid #d1d1d1;
+#ng-app select, #ng-app input[type=text]{
+	height:100%;
+	width:100%;
 	background-image:none;
 	background-color:white;
-	font-weight:normal;
-	margin-bottom:5px;
-	padding:8px 5px 4px 5px;
-	border-radius:0px;
+	border:none;
+	outline:none;
 }
 
-#ng-app select{
-	font-weight:bold;
-	font-size:1em;
+#ng-app div.menu{
 	background-color: #fdfdfd;
 	box-shadow: inset 0 0 0 1px #f5f5f5;
-	border: 1px solid #d1d1d1;
+	height:20px;
+	padding:5px;
+	margin-right:10px;
+	float:left;
+	border:1px solid #d1d1d1;
 	outline-color:#A4B512;
 }
 
@@ -74,9 +75,10 @@
 	min-height:120px;
 }
 
-#ng-app input{
-	margin-top:7px;
+#ng-app input[type=checkbox]{
+	margin-top:1px;
 	margin-left:6px;
+	margin-right:2px;
 }
 
 #ng-app .p100{
@@ -86,23 +88,15 @@
 #ng-app .resourceBox{
 	width:100%;
 	padding:0px;
-	margin:8px -2px 11px 0px;
+	margin:8px 0px 11px 0px;
 	position:relative;
 	/*box-shadow: 1px 1px 2px 1px #dddddd;*/
 	border-radius:5px;
 }
 
 #ng-app .resourceBox .inner{
-	padding:3px 8px 3px 8px;
-	/*brookings newsletter signup style*/
+	padding:3px 8px 3px 12px;
 	background-color: #fdfdfd;
-	/*-webkit-background-size: 100% auto;
-	-moz-background-size: 100% auto;
-	-ms-background-size: 100% auto;
-	-o-background-size: 100% auto;
-	background-size: 100% auto;
-	-webkit-box-shadow: inset 0 0 0 1px #fff;
-	-moz-box-shadow: inset 0 0 0 1px #fff;*/
 	box-shadow: inset 0 0 0px 1px #f5f5f5;
 	border: 1px solid #d1d1d1;
 	border-radius:0px;
@@ -141,6 +135,7 @@ background-color:#ffffff;
 }
 
 /*RESPONSIVE PORTION*/
+#ng-app{width:950px;}
 /*"not bigger than"*/
 @media (max-width:10000px){
 	#ng-app{
@@ -175,4 +170,24 @@ background-color:#ffffff;
 
 .content .content-inner .interactive .top .section div.primary{
 	padding-left:0px;
+}
+
+/*ANIMATION*/
+p.ng-enter, 
+p.ng-leave{ 
+    -webkit-transition: opacity 100ms linear 0ms;
+    -moz-transition: opacity 100ms linear 0ms;
+    -ms-transition: opacity 100ms linear 0ms;
+    -o-transition: opacity 100ms linear 0ms;
+    transition: opacity 100ms linear 0ms;
+} 
+
+p.ng-leave.ng-leave-active,
+p.ng-enter{
+    opacity: 0;
+}
+
+p.ng-enter.ng-enter-active, 
+p.ng-leave{
+    opacity: 1;
 }
