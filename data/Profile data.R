@@ -19,8 +19,10 @@ library(RJSONIO)
 #   Metros: Boolean indicating whether the profiles cover metros (assumed to be top 100)
 #   
 inventory <- read.csv("Research inventory.csv")
+nrow(inventory)
 descriptions <- read.csv("Research descriptions.csv")
-inventory <- merge(inventory,descriptions,by="PID")
+inventory <- merge(inventory,descriptions[,c("PID","Description")],by="PID")
+nrow(inventory)
 
 metros <- metropops(FALSE)
 metros$MetroName <- nameshort(metros$Metro_Name,type="MetroST")

@@ -63,7 +63,7 @@
 {
  "PID": 20110818,
 "Product": "Transit Access and Zero-Vehicle Households",
-"Dir": "http://www.brookings.edu/research/papers/2011/08/18-transportation-tomer-puentes/profiles",
+"Dir": "http://www.brookings.edu/~/media/Research/Files/Papers/2011/8/18%20transportation%20tomer%20puentes/profiles/",
 "Naming": "Code",
 "NamingDescriptive": "",
 "States": false,
@@ -258,5 +258,5 @@
 "Nick Marchio" 
 ],
 "Description": "Detailed data on U.S. export production by industry (including both the goods and services sectors) in 2012 and over time." 
-}
+} 
 ]

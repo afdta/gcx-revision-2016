@@ -24,6 +24,8 @@ angular.module('services').filter('linkBuilder',[function(){
   function linkit(report,met){
     //console.log(report);
     if(typeof report === 'undefined' || typeof met === 'undefined'){return ""};
+    if(met === null){return ""}
+
     var linkstyle = report.Naming;
     var link;
     //start filtering with report specific tests
@@ -67,4 +69,31 @@ angular.module('services').filter('linkBuilder',[function(){
     return report.Dir + link;
   }
   return linkit;
+}]);
+
+angular.module('services').filter('reportOrder',[function(){
+  function orderBy(reports,sortName){
+    if(typeof reports === 'undefined'){return null}
+    var r = reports.slice(0);
+    r.sort(function(a,b){
+              //if(a.Product=="All reports"){return -1}
+              //else if(b.Product=="All reports"){return 1}
+              if(sortName){return a.Product < b.Product ? -1 : 1;}
+              else {return b.PID - a.PID}  
+            });
+    //reports.push({dummy:1})
+    return r;
+  }
+  return orderBy;
+}]);
+
+angular.module('services').filter('pid2date',[function(){
+  function func(ymd){
+    var ymd = ymd + "";
+    var y = ymd.substring(0,4)
+    var m = ymd.substring(4,6)
+    var d = ymd.substring(6)
+    return (+m) + "/" + (+d) + "/" + y;
+  }
+  return func;
 }]);
