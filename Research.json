@@ -11,7 +11,8 @@
  "Alan Berube",
 "Carey Anne Nadeau" 
 ],
-"Description": "A look at 2009 data on U.S. metropolitan areas' contribution to state populations and economies, including a focus on key attributes that can drive the next round of U.S. economic growth." 
+"Description": "A look at 2009 data on U.S. metropolitan areas' contribution to state populations and economies, including a focus on key attributes that can drive the next round of U.S. economic growth.",
+"Keywords": "next economy" 
 },
 {
  "PID": 20110512,
@@ -27,7 +28,8 @@
 "Robert Puentes",
 "Alan Berube" 
 ],
-"Description": "A detailed look at transit coverage and connection to jobs using data from 371 transit providers in the nation's 100 largest metropolitan areas." 
+"Description": "A detailed look at transit coverage and connection to jobs using data from 371 transit providers in the nation's 100 largest metropolitan areas.",
+"Keywords": "opportunity infrastructure" 
 },
 {
  "PID": 20110709,
@@ -43,7 +45,8 @@
 "Matthew Hall",
 "Audrey Singer" 
 ],
-"Description": "examines educational attainment among foreign-born adults in 2009 for each of the nation's 100 largest metros and provides a detailed look at the significant role of immigrants in the U.S. economy." 
+"Description": "examines educational attainment among foreign-born adults in 2009 for each of the nation's 100 largest metros and provides a detailed look at the significant role of immigrants in the U.S. economy.",
+"Keywords": "skills demographics" 
 },
 {
  "PID": 20110713,
@@ -58,7 +61,8 @@
 "Jonathan Rothwell",
 "Devashree Saha" 
 ],
-"Description": "Establishment-level employment statistics for clean economy industries, assessing the current nature, size, and growth of the clean economy between 2003 and 2010." 
+"Description": "Establishment-level employment statistics for clean economy industries, assessing the current nature, size, and growth of the clean economy between 2003 and 2010.",
+"Keywords": "innovation clean economy cleantech" 
 },
 {
  "PID": 20110818,
@@ -72,7 +76,8 @@
  "Robert Puentes",
 "Adie Tomer" 
 ],
-"Description": "A detailed look at transit accessibility for households without vehicles in the nation's largest 100 metropolitan areas." 
+"Description": "A detailed look at transit accessibility for households without vehicles in the nation's largest 100 metropolitan areas.",
+"Keywords": "opportunity infrastructure" 
 },
 {
  "PID": 20111103,
@@ -87,7 +92,8 @@
 "Carey Nadeau",
 "Alan Berube" 
 ],
-"Description": "An analysis of data on neighborhood poverty from the 2005-09 American Community Surveys and Census 2000 to show how the economic downturn has affected the size and location of poverty in the top 100 metropolitan areas." 
+"Description": "An analysis of data on neighborhood poverty from the 2005-09 American Community Surveys and Census 2000 to show how the economic downturn has affected the size and location of poverty in the top 100 metropolitan areas.",
+"Keywords": "opportunity" 
 },
 {
  "PID": 20120419,
@@ -100,7 +106,8 @@
 "Authors": [
  "Jonathan Rothwell" 
 ],
-"Description": "An examination of standardized test scores in light of the economic and demographic characteristics near schools reveals the extent to which educational opportunities for students mirror their economic disparities." 
+"Description": "An examination of standardized test scores in light of the economic and demographic characteristics near schools reveals the extent to which educational opportunities for students mirror their economic disparities.",
+"Keywords": "skills" 
 },
 {
  "PID": 20120509,
@@ -115,7 +122,8 @@
 "Timothy Krueger",
 "Howard Wial" 
 ],
-"Description": "A comprehensive analysis ever manufacturing by metropolitan area, featuring data on employment, earnings, and the number of manufacturing establishments." 
+"Description": "A comprehensive analysis ever manufacturing by metropolitan area, featuring data on employment, earnings, and the number of manufacturing establishments.",
+"Keywords": "innovation next economy" 
 },
 {
  "PID": 20120627,
@@ -129,7 +137,8 @@
  "Alec Friedhoff",
 "Siddharth Kulkarni" 
 ],
-"Description": "An analysis of jobs, output, unemployment, and house prices in the nation's 100 largest metro areas, detailing the severity of the Great Recession, the strength of recovery, and the extent to which each metro area has recovered. The Metro Monitor features an analysis of each indicator in addition to a composite index of performance.   " 
+"Description": "An analysis of jobs, output, unemployment, and house prices in the nation's 100 largest metro areas, detailing the severity of the Great Recession, the strength of recovery, and the extent to which each metro area has recovered. The Metro Monitor features an analysis of each indicator in addition to a composite index of performance.   ",
+"Keywords": "macro" 
 },
 {
  "PID": 20120711,
@@ -142,7 +151,8 @@
 "Authors": [
  "Adie Tomer" 
 ],
-"Description": "An examination of metro-level data on the jobs located near transit, the number of workers within reach of job locations, and how these trends vary across industries and across cities and suburbs." 
+"Description": "An examination of metro-level data on the jobs located near transit, the number of workers within reach of job locations, and how these trends vary across industries and across cities and suburbs.",
+"Keywords": "opportunity infrastructure" 
 },
 {
  "PID": 20120718,
@@ -157,7 +167,8 @@
 "Jill H. Wilson",
 "Shyamali Choudhury" 
 ],
-"Description": "An exploration of the H-1B program at the metropolitan level, assessing demand for these workers by place and type of business and urging leaders to incorporate these regional perspectives into policy development." 
+"Description": "An exploration of the H-1B program at the metropolitan level, assessing demand for these workers by place and type of business and urging leaders to incorporate these regional perspectives into policy development.",
+"Keywords": "skills demographics " 
 },
 {
  "PID": 20120829,
@@ -170,7 +181,8 @@
 "Authors": [
  "Jonathan Rothwell" 
 ],
-"Description": "A labor market analysis of metropolitan-level data on the supply of educated labor, employer demand for skilled workers, and other economic trends affecting unemployment rates." 
+"Description": "A labor market analysis of metropolitan-level data on the supply of educated labor, employer demand for skilled workers, and other economic trends affecting unemployment rates.",
+"Keywords": "skills opportunity" 
 },
 {
  "PID": 20121025,
@@ -185,7 +197,8 @@
 "Robert Puentes",
 "Zachary Neal" 
 ],
-"Description": "Tracks and analyzes international commercial air travel passenger levels within the United States' global aviation network. The first study of its kind, this report ranks 1) the 100 largest metropolitan areas for the number of passengers traveling to and from international destinations through their airports; 2) the most popular international metro areas based on passengers traveling to and from the U.S.; and 3) the most trafficked corridors between U.S. and international metropolitan areas." 
+"Description": "Tracks and analyzes international commercial air travel passenger levels within the United States' global aviation network. The first study of its kind, this report ranks 1) the 100 largest metropolitan areas for the number of passengers traveling to and from international destinations through their airports; 2) the most popular international metro areas based on passengers traveling to and from the U.S.; and 3) the most trafficked corridors between U.S. and international metropolitan areas.",
+"Keywords": "global" 
 },
 {
  "PID": 20121130,
@@ -198,7 +211,8 @@
 "Authors": [
  "Emilia Istrate and Carey Anne Nadeau" 
 ],
-"Description": "An analysis of employment, population, and GDP per capita trends in the world’s 300 largest metropolitan economies in the aftermath of the 2007 global recession." 
+"Description": "An analysis of employment, population, and GDP per capita trends in the world’s 300 largest metropolitan economies in the aftermath of the 2007 global recession.",
+"Keywords": "macro global" 
 },
 {
  "PID": 20130201,
@@ -214,7 +228,8 @@
 "Deborah Strumsky",
 "Mark Muro" 
 ],
-"Description": "This report ranks the nation’s metropolitan areas on patenting levels and growth from 1980 to 2012, and examines the importance of patents as a measure of invention and economic growth." 
+"Description": "This report ranks the nation’s metropolitan areas on patenting levels and growth from 1980 to 2012, and examines the importance of patents as a measure of invention and economic growth.",
+"Keywords": "innovation clean economy cleantech" 
 },
 {
  "PID": 20130301,
@@ -229,7 +244,8 @@
 "Adie Tomer",
 "Joseph Kane" 
 ],
-"Description": "An analysis of U.S. passenger rail by region, providing Amtrak ridership levels for each of the largest 100 metropolitan areas, as well as route operating costs from 1997 to 2012." 
+"Description": "An analysis of U.S. passenger rail by region, providing Amtrak ridership levels for each of the largest 100 metropolitan areas, as well as route operating costs from 1997 to 2012.",
+"Keywords": "infrastructure" 
 },
 {
  "PID": 20130610,
@@ -242,7 +258,8 @@
 "Authors": [
  "Jonathan Rothwell" 
 ],
-"Description": "A redefinition of STEM (science, technology, engineering, and math) occupations accompanied by data on the role of STEM occupations in the nation’s largest 100 metros using 2011 data on occupations and their knowledge requirements." 
+"Description": "A redefinition of STEM (science, technology, engineering, and math) occupations accompanied by data on the role of STEM occupations in the nation’s largest 100 metros using 2011 data on occupations and their knowledge requirements.",
+"Keywords": "skills innovation opportunity" 
 },
 {
  "PID": 20130917,
@@ -257,6 +274,38 @@
 "Ryan Donahue",
 "Nick Marchio" 
 ],
-"Description": "Detailed data on U.S. export production by industry (including both the goods and services sectors) in 2012 and over time." 
+"Description": "Detailed data on U.S. export production by industry (including both the goods and services sectors) in 2012 and over time.",
+"Keywords": "global" 
+},
+{
+ "PID": 20131022,
+"Product": "Metro-to-Metro: Global and Domestic Goods Trade in Metropolitan America ",
+"Dir": "http://www.brookings.edu/~/media/multimedia/interactives/2013/MetroFreight/profiles/",
+"Naming": "Code",
+"NamingDescriptive": "",
+"States": false,
+"Metros": true,
+"Authors": [
+ "Robert Puentes",
+"Adie Tomer",
+"Joseph Kane" 
+],
+"Description": "This discussion paper marks the first time metropolitan areas can begin to explore their place in domestic and global goods trade networks by tracking which regions generate the most international trade and the level of trade within the much larger domestic marketplace.",
+"Keywords": "global infrastructure" 
+},
+{
+ "PID": 20131107,
+"Product": "Metro North America: Cities and Metros as Hubs of Advanced Industries and Integrated Goods Trade",
+"Dir": "http://www.brookings.edu/~/media/Multimedia/Interactives/2013/MetroNorthAmerica/profiles/",
+"Naming": "Mcode",
+"NamingDescriptive": "",
+"States": false,
+"Metros": true,
+"Authors": [
+ "Alan Berube",
+"Joseph Parilla" 
+],
+"Description": "Twenty years after the enactment of the North American Free Trade Agreement, advanced manufacturing sectors today extend their supply chains across the United States, Mexico, and Canada, anchored by productive metropolitan hubs in all three countries. This first-ever analysis of production and trade among North America’s cities and metropolitan areas reveals the new North American map of goods production and consumption.",
+"Keywords": "global" 
 } 
 ]

@@ -40,6 +40,59 @@ angular.module('controllers',[]).controller("metrodat_ctrl",['$scope','$http','$
     return $location.path().replace(/\//,"");
   }
 
+  //MENU DATA
+  $scope.menuCategories = [{n:"Economic Performance",k:"macro"},
+                          {n:"Demographics",k:"demographics"},
+                          {n:"Innovation",k:"innovation"},
+                          {n:"Global Trade and Logistics",k:"global"},
+                          {n:"Human Capital",k:"skills"},
+                          {n:"Opportunity",k:"opportunity"},
+                          {n:"Infrastructure",k:"infrastructure"}]
+
+  //Search
+  $scope.search = {button:null,buttonTitle:null,input:null,showAll:false};
+  $scope.setButton = function(buttonItem){
+    $scope.search.button = buttonItem.k;
+    $scope.search.buttonTitle = buttonItem.n;
+  }
+  $scope.reportFilter=function(val,indx){
+    if($scope.search.button===null && $scope.search.input===null){return false}
+    if($scope.search.showAll){return true} //no filtering
+
+    var txt = val.Product.toLowerCase() + " " + val.Description.toLowerCase();
+    var key = val.Keywords.toLowerCase();
+    //console.log(txt);
+    //consider this as reports grow
+    //if(!$scope.metsel){return false} //don't bother filtering until you show the options -- preserve resources!
+    
+    var regexpButton = $scope.search.button !== null ? new RegExp($scope.search.button.toLowerCase()) : null;
+    var regexpInput = ($scope.search.input !== null) ? new RegExp($scope.search.input.toLowerCase()) : null;
+
+    if(regexpButton){
+      //we have received button input so test for match
+      var matchButton = key.search(regexpButton) !== -1 ? true : false;
+    }
+    else{
+      //default to no effect on filter
+      var matchButton = true;
+    }
+    
+    if(regexpInput){
+      //we have received valid input of length greater than 1, so check search
+      //need a better way to implement search greater than 0--if results already shown, all items disappear on first letter
+      var matchInput = (txt.search(regexpInput) !== -1 && $scope.search.input.length > 0) ? true : false;
+      return matchInput&&matchButton;
+    }
+    else{
+      //we have not received valid input
+      var matchInput = false;
+      return matchButton; //in this case only the state of the button matters
+    }
+  };
+
+
+
+
   //LOAD UP METRO DATA
   $http.get(assetRepo + '/Metros.json').success(function(data) {
     var dataFiltered = filterie8(data,function(a){return a.Largest100==1 ? true : false});

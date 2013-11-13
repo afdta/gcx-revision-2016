@@ -23,6 +23,8 @@ nrow(inventory)
 descriptions <- read.csv("Research descriptions.csv")
 inventory <- merge(inventory,descriptions[,c("PID","Description")],by="PID")
 nrow(inventory)
+keywords <- read.csv("Research keywords.csv")
+inventory <- merge(inventory,keywords[,c("PID","Keywords")],by="PID")
 
 metros <- metropops(FALSE)
 metros$MetroName <- nameshort(metros$Metro_Name,type="MetroST")
