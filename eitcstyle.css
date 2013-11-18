@@ -37,8 +37,8 @@
 #ng-app h1,#ng-app h2,#ng-app h3,#ng-app h4,#ng-app h5,#ng-app a{
 	font-family:Arial;
 	font-weight:500;
-	padding:4px 10px 4px 0px;
-	margin-bottom:5px;
+	padding:0px;
+	margin:0px;
 	color:rgb(5,55,105);
 	display:block;
 	clear:both;
@@ -54,7 +54,7 @@
 #ng-app .fs-2x{font-size:200%;}
 
 #ng-app h1{font-size:250%;}
-#ng-app h2{font-size:150%;padding-top:15px;}
+#ng-app h2{font-size:150%;}
 #ng-app h2 i{color:#FFB33C;font-style:normal;}
 #ng-app h3,#ng-app a{font-size:120%;text-decoration:none;}
 #ng-app h4, #ng-app h5{font-size:80%;padding:3px 3px 3px 0px;margin:2px 0px 2px 0px;}
@@ -68,6 +68,14 @@
 	display:block;
 }
 
+#ng-app text{
+	font-family: Arial, Serif;
+	text-rendering:optimizeLegibility;
+}
+
+#ng-app rect{
+	shape-rendering:auto;
+}
 
 #ng-app ul li a{
 	font-size:100%;
@@ -185,8 +193,6 @@
 	font-size:87.5%;
 }
 
-
-
 #ng-app .button:hover{background-color:#FFB33C;}
 
 #ng-app .button div{
@@ -214,16 +220,22 @@
 }
 
 #ng-app .metroSelect{
-	width:56%;
-	height:260px;
-	background:#1E4D66;
+	width:98%;
+	min-width:415px;
+	height:auto;
+	background:#f6f9fe;
 	padding:10px 1% 10px 1%;
-	float:left;
-	margin-right:2%;
+	clear:left;
+	margin:0px;
 	position:relative;
 	left:0px;
 	top:0px;
 	overflow:hidden;
+}
+
+#ng-app .responsive{
+	float:left;
+	padding:10px;
 }
 
 #ng-app .button:first-child{margin-left:0px;}
@@ -242,44 +254,45 @@ user-select: none;
 
 /*RESPONSIVE PORTION*/
 #ng-app{width:950px;}
-/*"not bigger than"*/
-@media (max-width:10000px){
-	#ng-app{
-		width:950px;
+/*"not smaller than 0px and not larger than 760"*/
+@media (min-width:0px) and (max-width:760px){
+	#ng-app, #ng-app .responsive{
+		width:100%;
 	}
-
-
-	#ng-app select{
-		width: 100%;
+	#ng-app .metroSelect .responsive{
+		width:100%;
+		max-width:400px;
+		margin-top:10px;
+		margin-bottom:20px;
 	}
 }
 
-@media (max-width:950px){
+@media (min-width:760px) and (max-width:980px){
+	#ng-app, #ng-app .responsive{
+		width:100%;
+	}
+	#ng-app .metroSelect .responsive{
+		width:35%;
+		margin-top:40px;
+		margin-bottom:20px;
+	}
+}
+
+@media (min-width:980px){
 	#ng-app{
 		width:100%;
 	}
 
-
-	#ng-app select{
-		width: 100%;
+	#ng-app .metroSelect .responsive{
+		float:left;
+		width:35%;
+		margin-top:40px;
+		margin-bottom:20px;
 	}
 }
 
 
-@media (max-width:550px){
-	#ng-app{
-		width:100%;
-	}
 
-	#ng-app .buttons,#ng-app .metroSelect{
-		margin:0px 0px 10px 0px;
-		width:98%;
-	}
-
-	#ng-app select{
-		width:100%;
-	}
-}
 
 /**********************************************************************/
 
