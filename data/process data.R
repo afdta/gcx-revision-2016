@@ -35,8 +35,8 @@ links <- read.csv("WebResources.csv",stringsAsFactors=FALSE,na.strings=c("","NA"
 #links2 <- merge(ll[,c("firstcity","CBSA_Code")],links,by.x="firstcity",by.y="Metro",all.y=TRUE)
 #write.csv(links2,file="WebResources.csv",row.names=FALSE)
 #add new products
-links$Exports_Plan_Summary <- paste("/~/media/Multimedia/Interactives/2013/GCXMedia/OverviewDocs/",links$firstcity,".pdf",sep="")
-links$Exports_Plan_Summary <- ifelse(grepl("Syracuse|Charleston|Des Moines|Los Angeles|Portland|Minneapolis|San Antonio",links$firstcity),links$Exports_Plan_Summary,NA)
+links$Export_Plan_Summary <- paste("/~/media/Multimedia/Interactives/2013/GCXMedia/OverviewDocs/",links$firstcity,".pdf",sep="")
+links$Export_Plan_Summary <- ifelse(grepl("Syracuse|Charleston|Des Moines|Los Angeles|Portland|Minneapolis|San Antonio",links$firstcity),links$Export_Plan_Summary,NA)
 
 products <- names(links)[-1:-2]
 linklist <- list()
