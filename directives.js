@@ -1,11 +1,12 @@
 angular.module('directives',[]).directive('usMap', ['d3Service',function(d3){
   return {
-    template:'<div style="width:100%;min-width:300px;min-height:290px"></div>',
+    template:'<div style="width:100%;min-width:300px;min-height:260px"></div>',
     replace:false,
+    scope:false,
     link:function(s,i,a){
-      //console.log(i);
+      //console.log(s);
       if(d3){
-        var svg = d3.select(i.find('div')[0]).append("svg").style({"height":"290px","width":"120%"});
+        var svg = d3.select(i.find('div')[0]).append("svg").style({"height":"260px","width":"120%"});
 
         var defs = svg.append("svg:defs");
         var gradient2 = defs.append("svg:radialGradient").attr("id", "gradient2").attr("cx", "50%").attr("cy", "50%").attr("r", "50%").attr("fx", "45%").attr("fy", "45%");
@@ -44,7 +45,7 @@ angular.module('directives',[]).directive('usMap', ['d3Service',function(d3){
         var stjson = s.stjson;
         var latlon = s.latlon;
 
-        var proj = d3.geo.albersUsa().scale(550).translate([210,140]);
+        var proj = d3.geo.albersUsa().scale(500).translate([182,115]);
         var path = d3.geo.path().projection(proj);
         //var u = Math.sqrt(0.5);
         borders.append("path").attr("d",path(stjson)).style({"fill":"#163A4C","stroke":"rgba(0,0,0,0)","stroke-width":"0.5px"});
@@ -60,7 +61,7 @@ angular.module('directives',[]).directive('usMap', ['d3Service',function(d3){
         dots.selectAll("circle").data(latlon.metroUniverse).enter().append("circle")
             .attr("cx",function(d,i){
               var ll = latlon.metros[d];
-              //ll.lonlat = proj([ll.Lon,ll.Lat]); //mutate original data
+              //lonlat added to original data above
               return ll.lonlat[0];
             })
             .attr("cy",function(d,i){
@@ -79,7 +80,7 @@ angular.module('directives',[]).directive('usMap', ['d3Service',function(d3){
           if(d in s.gcxmetros){return this}
           else{return null}
         })
-        .attr("filter","url(#smallShadow)")
+        //.attr("filter","url(#smallShadow)")
 
         //setTimeout(function(){gcxDots.attr("r",25);},1500);
         gcxDots.on("mouseover",function(d,i){
@@ -98,7 +99,7 @@ angular.module('directives',[]).directive('usMap', ['d3Service',function(d3){
           //c.enter().append("circle"); c.exit().remove(); c.attr("class","hoverDot").style({"fill":"none","stroke":"#ffffff","stroke-width":"1px","opacity":1}).attr(attr);
           g.enter().append("g"); g.exit().remove(); g.attr("class","hoverDot").style("opacity",0).attr("transform","translate("+(cx+13)+","+(cy-8)+")");
           
-          var rct = g.append("rect").attr({height:"16px",width:"100px","rx":"3px","ry":"3px","filter":"url(#smallShadow)"}).style({"fill":"#FFB33C","opacity":"1"});
+          var rct = g.append("rect").attr({height:"16px",width:"100px","rx":"3px","ry":"3px"}).style({"fill":"#FFB33C","opacity":"1"});
           var txt = g.append("text").attr({dx:"5px",dy:"12px"}).text(m.firstcity).style({"fill":"#303030","stroke":"none","stroke-width":"0.25px","font-size":"11px","font-weight":"bold","line-height":"11px"});
 
           //marker is centered on a 22w x 40h canvas (pixels)
@@ -117,11 +118,18 @@ angular.module('directives',[]).directive('usMap', ['d3Service',function(d3){
           anno.selectAll(".hoverDot").remove();
         });
 
+        gcxDots.on("mousedown",function(d,i){
+          s.$apply(s.metro=d);
+        });
+
       }//end d3 code
       else{
         var jq = i.find('div')
-        jq.css("background-image","url(" + s.assetRepo + "/gcxmap.png" + ")");
-        jq.css("width","420px");
+        jq.append('<img src="' + s.assetRepo + '/gcxmap.png"' + 'height="265" width="395"/>')
+        //("background-image","url(" + s.assetRepo + "/gcxmap.png" + ")");
+        //jq.css("background-repeat","url(no-repeat)");
+        //jq.css("background-repeat","left top");
+        //jq.css("width","395px");
       }
     }
   }  

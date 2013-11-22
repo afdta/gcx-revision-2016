@@ -12,6 +12,11 @@
 	min-height:120px;
 	min-width:300px;
 	font-size:16px;
+	font-family:Arial, Sans;
+	font-weight:normal;
+	padding:0px;
+	margin:0px;
+	color:rgb(5,55,105);
 }
 
 #ng-app .group{
@@ -26,12 +31,12 @@
 	float:left;
 	margin:0;
 	padding:0;
-	list-style-type:none;
+	width:100%;
+	list-style-type:disc;
 }
 
 #ng-app li{
 	background:none;
-	list-style-type:none;
 }
 
 #ng-app h1,#ng-app h2,#ng-app h3,#ng-app h4,#ng-app h5,#ng-app a{
@@ -45,9 +50,8 @@
 	float:left;
 }
 
-#ng-app .lato{font-family:Lato,Arial,Helvetica;}
 #ng-app .light{font-weight:300;}
-#ng-app .lato p{font-family:Lato,Arial,Helvetica;}
+#ng-app p{font-size:80%;margin:0px;}
 #ng-app .white{color:#ffffff;} 
 #ng-app .dark{color:#163a4c;}  
 #ng-app .fs-big{font-size:170%;}
@@ -59,13 +63,16 @@
 #ng-app h3,#ng-app a{font-size:120%;text-decoration:none;}
 #ng-app h4, #ng-app h5{font-size:80%;padding:3px 3px 3px 0px;margin:2px 0px 2px 0px;}
 
-#ng-app p,#ng-app select,#ng-app a,#ng-app input,#ng-app ul li{
+#ng-app select,#ng-app a,#ng-app input,#ng-app ul li{
 	font-family: Arial;
 	font-weight:normal;
+	font-size:80%;
 	padding:0px 0px 0px 0px;
 	margin:0px;
-	color:rgb(50,50,50);
+	color:rgb(5,55,105);
 	display:block;
+	float:left;
+	width:100%;
 }
 
 #ng-app text{
@@ -75,6 +82,10 @@
 
 #ng-app rect{
 	shape-rendering:auto;
+}
+
+#ng-app path{
+	shape-rendering:crispEdges;
 }
 
 #ng-app ul li a{
@@ -92,139 +103,33 @@
 	outline:none;
 }
 
-#ng-app div.group.inner.menu{
-	padding-top:10px;
-	padding-bottom:10px;
-}
-
-#ng-app .options p{
-	font-style:italic;
-}
-
-#ng-app .float-left{
-	float:left;
-	margin-right:15px;
-}
-
-#ng-app .menu-item{
-	float:left;
-	padding:2px 5px 2px 5px;
-	margin:1px 2px 1px 0px;
-	border:0px solid #d1d1d1;
-	cursor:pointer;
-	color:#ffffff;
-	font-size:14px;
-	pointer-events:auto;
-	border-radius:5px; 
-}
-
-#ng-app .menu-item:hover{
-	background-color:#FFB33C;
-}
-
-#ng-app input[type=checkbox]{
-	margin-top:1px;
-	margin-left:6px;
-	margin-right:2px;
-}
-
-#ng-app input[type=text].input-alone{
-	padding:2px 5px 2px 5px;
-	margin-top:-3px;
-	background-color: #ffffff;
-	/*box-shadow: inset 0 0 0px 1px #f5f5f5;*/
-	border: 1px solid #d1d1d1;
-	border-radius:0px;
-	min-width:200px;
-	max-width:250px;
-}
-
-#ng-app .p100{
-	width:100%;
-}
-
 #ng-app .resourceBox{
 	width:100%;
 	padding:0px;
-	margin:8px 0% 11px 0px;
-	position:relative;
-	min-width:250px;
+	margin:0px;
 	float:left;
-	/*display:inline-block;*/
-	/*box-shadow: 1px 1px 2px 1px #dddddd;*/
 }
 
 #ng-app .resourceBox .inner{
-	padding:5px 20px 11px 15px;
-	background-color: #eeeeee;
-	/*box-shadow: inset 0 0 0px 1px #f5f5f5;*/
+	padding:2px 1% 2px 1%;
 	border: 1px solid #d1d1d1;
-	border-radius:0px;
-	position:relative;
+	width:98%;
 }
 
-#ng-app .texture{
-	background-color:#ffffff;
-	/*background:url('./squairy_light.png');*/
-}
-
-#ng-app .resourceBox .title{
-	color:rgb(5,55,105);
-	text-transform:uppercase;
-	font-weight:bold;
-}
-
-#ng-app .profileLink{
-	color:rgb(5,55,105);
-	font-style:italic;
-}
-
-#ng-app .button{
-	width:96%;
-	height:18px;
-	padding:3px 2% 3px 2%;
-	margin:0px;
-	float:left;
-	cursor:pointer;
-	list-style-type:none;
-	list-style-image: none;
-	background-color:#43ACE6;
-	border-radius:5px;
-	font-size:87.5%;
-}
-
-#ng-app .button:hover{background-color:#FFB33C;}
-
-#ng-app .button div{
-	border-radius:5px;
+#ng-app .resourceBoxes .title{
+	color:rgb(100,100,100);
+	font-family:arial;
+	font-size:13px;
+	font-weight:normal;
 	width:100%;
-	height:100%;
-	margin:0px;
-	background:none;
-	background-image:none;
-	/*display:table*/;
-}
-
-#ng-app .button div p{color:#ffffff;vertical-align:bottom;pointer-events:none;text-align:left;}
-/*display:table-cell;*/
-
-#ng-app .button:hover div p{color:#ffffff;}
-
-#ng-app .buttons{
-	margin-bottom:15px;
-	width:38%;
-	height:260px;
-	padding:10px 1% 10px 1%;
-	float:left;
-	background-color:#43ACE6;
 }
 
 #ng-app .metroSelect{
-	width:98%;
+	width:100%;
 	min-width:415px;
 	height:auto;
-	background:#f6f9fe;
-	padding:10px 1% 10px 1%;
+	background:#fffffff;
+	padding:0px;
 	clear:left;
 	margin:0px;
 	position:relative;
@@ -232,16 +137,6 @@
 	top:0px;
 	overflow:hidden;
 }
-
-#ng-app .responsive{
-	float:left;
-	padding:10px;
-}
-
-#ng-app .button:first-child{margin-left:0px;}
-#ng-app .button.blue{background-color:#43ACE6;}
-#ng-app .button.yellow{background-color:#F8D64D;}
-#ng-app .button.green{background-color:#9FC516;}
 
 #ng-app .no-select{
 -webkit-touch-callout: none;
@@ -252,29 +147,22 @@
 user-select: none;
 }
 
+#ng-app .resourceBoxes{
+	width:285px;
+	float:left;
+	max-width:500px;
+}
+
 /*RESPONSIVE PORTION*/
 #ng-app{width:950px;}
 /*"not smaller than 0px and not larger than 760"*/
-@media (min-width:0px) and (max-width:760px){
-	#ng-app, #ng-app .responsive{
+@media (min-width:0px) and (max-width:980px){
+	#ng-app{
 		width:100%;
 	}
-	#ng-app .metroSelect .responsive{
-		width:100%;
-		max-width:400px;
-		margin-top:10px;
-		margin-bottom:20px;
-	}
-}
 
-@media (min-width:760px) and (max-width:980px){
-	#ng-app, #ng-app .responsive{
-		width:100%;
-	}
-	#ng-app .metroSelect .responsive{
-		width:35%;
-		margin-top:40px;
-		margin-bottom:20px;
+	#ng-app .resourceBoxes{
+		width:85%;
 	}
 }
 
@@ -283,25 +171,9 @@ user-select: none;
 		width:100%;
 	}
 
-	#ng-app .metroSelect .responsive{
-		float:left;
-		width:35%;
-		margin-top:40px;
-		margin-bottom:20px;
+	#ng-app .resourceBoxes{
+		width:285px;
 	}
-}
-
-
-
-
-/**********************************************************************/
-
-.content .content-inner .interactive .top .section div.primary{
-	padding-left:0px;
-}
-
-.primary .metadata .article-type{
-	display:none;
 }
 
 /**********************************************************************/

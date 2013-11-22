@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Data Resources at Brookings</title>
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="eitcstyle.css">
   <script type="text/javascript" src="angularmin.js"></script>
   <script type="text/javascript" src="angularanimatemin.js"></script>
@@ -11,35 +10,47 @@
   <script type="text/javascript" src="services.js"></script>
   <script type="text/javascript" src="directives.js"></script>
   <script type="text/javascript" src="controllers.js"></script>
-  <!--<script type="text/javascript" src="json2.js"></script>-->
+  <!--[if lte IE 8]>
+      <script src="/~/media/multimedia/interactives/2013/GCXMedia/json3.js"></script>
+  <![endif]-->
 </head>
 <body>
 <div ng-app="GCXResources" ng-controller="GCXCtrl" id="ng-app">
 	<div style="width:100%">
 		<div class="group" style="margin-top:5px;float:left;border:0px solid #d1d1d1;width:100%;padding-left:0%;padding-right:0%;padding-bottom:25px;">
-		
-			<!--<h3>{{selectionHeader}}</h3>-->
-		<!--<h1 class="lato light">THE EXCHANGE</h1>
-		<h3 class="lato light">A Project of the Globlal Cities Initiative</h3>-->
 			
 		<div class="metroSelect group">
-			<h2 class="lato light" style="margin:5px 0px 8px 10px">Metropolitan Areas Participating In The Exchange</h2>
-			<p class="animate-repeat lato menu-item no-select" 
+			<p class="animate-repeat menu-item no-select" 
 			   ng-repeat="m in metros | filter:metkeyword track by m.MCode"
 			   ng-mouseDown='setMetro(m)'>
 			   {{m.ShortName}}
 			</p>
 
-			<div us-map style="float:left;width:415px;clear:left;"></div>
-			<div class="responsive group">
-				<p class="lato" style="font-size:14px;width:45%;margin-left:1%;float:left;text-align:center;color:rgb(5,55,105)" ng-repeat= "(c,o) in gcxmetros">{{latlon.metros[c].firstcity}}</p>
+			<div us-map style="float:left;width:395px;clear:left;"></div>
+			<div class="group resourceBoxes">
+				<h3 style="clear:both;float:left;margin-left:4px;margin-bottom:10px;margin-top:0px;">Resources from the Exchange</h3>
+				<p class="title" style="margin:3px 0px 5px 5px;float:left;clear:both;">SELECT A METRO AREA</p>
+				<div class="resourceBox group"><div class="inner group">
+					<select ng-model="metro" ng-options="key as latlon.metros[key].firstcity for (key,value) in gcxmetros"></select>
+				</div></div>
+				<p class="title" style="margin:12px 0px 5px 5px;float:left;clear:both;">AND/OR A RESEARCH PRODUCT</p>
+				<div class="resourceBox group"><div class="inner group">
+					<select ng-model="chosenProduct" ng-init="chosenProduct='...'">
+					 	<option ng-repeat="l in linkOptions track by l" value={{l}} ng-selected="l==chosenProduct">{{l}}</option>
+					</select>
+				</div></div>
+				<p class="title" style="margin:12px 0px 5px 5px;float:left;clear:both;">{{linkMessage}}</p>
+				<ul>
+					<li style="margin-left:5px;" ng-repeat="p in availableProducts track by p.url"><a href={{p.url}}>{{p.text}}</a></li>
+				</ul>
+				<p ng-hide="hideFootnote" style="float:left;margin:5px 0px 5px 5px;color:rgb(100,100,100)"> *Hosted on an external site.</p>
 			</div>
 		</div>
 			
-
 		</div>
 	</div>
 </div>
+
 
 </body>
 </html>
