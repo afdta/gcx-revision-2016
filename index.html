@@ -15,39 +15,64 @@
   <![endif]-->
 </head>
 <body>
-<div ng-app="GCXResources" ng-controller="GCXCtrl" id="ng-app">
-	<div style="width:100%">
-		<div class="group" style="margin-top:5px;float:left;border:0px solid #d1d1d1;width:100%;padding-left:0%;padding-right:0%;padding-bottom:25px;">
-			
-		<div class="metroSelect group">
-			<p class="animate-repeat menu-item no-select" 
-			   ng-repeat="m in metros | filter:metkeyword track by m.MCode"
-			   ng-mouseDown='setMetro(m)'>
-			   {{m.ShortName}}
-			</p>
+<div ng-app="GCXResources" ng-controller="GCXCtrl" id="ng-app" class="group" style="float:left;clear:both;">
+	<div class="group" style="margin-top:5px;float:left;border:0px solid #d1d1d1;width:100%;padding-left:0%;padding-right:0%;padding-bottom:5px;">
+		
+	<div class="metroSelect group">
+		<p class="animate-repeat menu-item no-select" 
+		   ng-repeat="m in metros | filter:metkeyword track by m.MCode"
+		   ng-mouseDown='setMetro(m)'>
+		   {{m.ShortName}}
+		</p>
+		<div us-map style="float:left;width:100%;clear:left;"></div>
+		<div class="group" style="float:left;width:100%">
+			<div class="group resourceBoxes full">
+				<h3>Overview of Metro Area Efforts To Date</h3>
+				<p style="font-style:italic;clear:left;margin-bottom:0px;">For concise descriptions of metro area efforts as part of the Exchange, look here. For more in-depth information, see the other resources on this page.</p>
+				<div class="resourceBox group">
+					<ul>
+						<li style="margin-right:8px;float:left;width:auto"><a href="" style="pointer-events:none">Links (PDF): </a></li>
+						<li style="margin-right:14px;float:left;width:auto" ng-repeat="p in overviewDocs track by p.url"><a href={{p.url}}>{{p.metro}}</a></li>
+					</ul>
+				</div>
+			</div>
 
-			<div us-map style="float:left;width:395px;clear:left;"></div>
-			<div class="group resourceBoxes">
-				<h3 style="clear:both;float:left;margin-left:4px;margin-bottom:10px;margin-top:0px;">Resources from the Exchange</h3>
-				<p class="title" style="margin:3px 0px 5px 5px;float:left;clear:both;">SELECT A METRO AREA</p>
-				<div class="resourceBox group"><div class="inner group">
+			<div class="group resourceBoxes left" style="clear:left;">
+				<h3>Products of the Exchange</h3>
+				<p style="font-style:italic;clear:left;margin-bottom:8px;">See what metro areas have produced as part of the Exchange.</p>
+
+				<p class="title" style="margin:3px 0px 5px 0px;float:left;clear:both;">SELECT A METRO AREA</p>
+				<div class="resourceBox group"><div id="metroSelectBox" class="inner group">
 					<select ng-model="metro" ng-options="key as latlon.metros[key].firstcity for (key,value) in gcxmetros"></select>
 				</div></div>
-				<p class="title" style="margin:12px 0px 5px 5px;float:left;clear:both;">AND/OR A RESEARCH PRODUCT</p>
+				<p class="title" style="margin:12px 0px 5px 0px;float:left;clear:both;">AND/OR A PRODUCT TYPE</p>
 				<div class="resourceBox group"><div class="inner group">
 					<select ng-model="chosenProduct" ng-init="chosenProduct='...'">
 					 	<option ng-repeat="l in linkOptions track by l" value={{l}} ng-selected="l==chosenProduct">{{l}}</option>
 					</select>
 				</div></div>
-				<p class="title" style="margin:12px 0px 5px 5px;float:left;clear:both;">{{linkMessage}}</p>
-				<ul>
-					<li style="margin-left:5px;" ng-repeat="p in availableProducts track by p.url"><a href={{p.url}}>{{p.text}}</a></li>
-				</ul>
-				<p ng-hide="hideFootnote" style="float:left;margin:5px 0px 5px 5px;color:rgb(100,100,100)"> *Hosted on an external site.</p>
+				<p class="title" style="margin:12px 0px 5px 0px;float:left;clear:both;">PRODUCT LINKS (PDF)</p>
+				<div class="resourceBox group"><div class="inner group" style="padding-top:10px;padding-bottom:10px;">
+					<p style="margin-left:5px;">{{linkMessage}}</p>
+					<ul>
+						<li style="margin-left:5px;" ng-repeat="p in availableProducts track by p.url"><a href={{p.url}}>{{p.text}}</a></li>
+					</ul>
+					<p ng-hide="hideFootnote" style="float:left;margin:10px 0px 5px 5px;color:rgb(150,150,150);font-size:11px"> *Hosted on an external site.</p>
+				</div></div>
+			</div>
+			<div class="group resourceBoxes right" style="margin-bottom:0px;padding-bottom:0px;">
+				<h3>The Exchange Toolkit</h3>
+				<p style="font-style:italic;clear:left;margin-bottom:8px;">Brookings' how-to guides for the planning process, and other tools.</p>
+
+				<a class="toolkit" href="http://www.brookings.edu/research/papers/2012/08/metro-exports-guide">Ten Steps to Delivering a Successful Metro Export Plan » </a>
+				<a class="toolkit" href="http://www.brookings.edu/research/interactives/export-nation">Export Nation 2013 (Comprehensive Data) » </a>
+				<a class="toolkit" href="http://www.brookings.edu/~/media/Projects/state metro innovation/export initiative surveys/export survey template.pdf">One-on-One Business Interview Form (PDF) » </a>
+				<a class="toolkit" href="http://www.brookings.edu/~/media/Projects/state metro innovation/export initiative surveys/export business template.pdf">Business Survey Template (PDF) » </a>
+
 			</div>
 		</div>
-			
-		</div>
+	</div>
+		
 	</div>
 </div>
 

@@ -16,14 +16,20 @@
 	font-weight:normal;
 	padding:0px;
 	margin:0px;
-	color:rgb(5,55,105);
+	color:rgb(51,51,51);
 }
 
-#ng-app .group{
+#ng-app .group, #ng-app.group{
 	border:none;
 	background:none;
 	background-image:none;
 	margin:0px;
+}
+
+#ng-app img{
+	height:auto; 
+	max-width:100%;
+	width:auto\9;
 }
 
 #ng-app ul{
@@ -32,11 +38,8 @@
 	margin:0;
 	padding:0;
 	width:100%;
-	list-style-type:disc;
-}
-
-#ng-app li{
 	background:none;
+	background-image:none;
 }
 
 #ng-app h1,#ng-app h2,#ng-app h3,#ng-app h4,#ng-app h5,#ng-app a{
@@ -44,10 +47,14 @@
 	font-weight:500;
 	padding:0px;
 	margin:0px;
-	color:rgb(5,55,105);
+	color:rgb(51,51,51);
 	display:block;
 	clear:both;
 	float:left;
+}
+
+#ng-app a.toolkit{
+	margin-bottom:10px;
 }
 
 #ng-app .light{font-weight:300;}
@@ -63,21 +70,26 @@
 #ng-app h3,#ng-app a{font-size:120%;text-decoration:none;}
 #ng-app h4, #ng-app h5{font-size:80%;padding:3px 3px 3px 0px;margin:2px 0px 2px 0px;}
 
-#ng-app select,#ng-app a,#ng-app input,#ng-app ul li{
+#ng-app select,#ng-app a,#ng-app input,#ng-app ul li,#ng-app span{
 	font-family: Arial;
 	font-weight:normal;
 	font-size:80%;
-	padding:0px 0px 0px 0px;
+	padding:2px 0px 0px 0px;
 	margin:0px;
-	color:rgb(5,55,105);
 	display:block;
 	float:left;
 	width:100%;
+	background:none;
+	background-image:none;
 }
 
 #ng-app text{
 	font-family: Arial, Serif;
 	text-rendering:optimizeLegibility;
+	fill:#0664B2;
+	font-size:11px;
+	text-anchor:start;
+	pointer-events:none;
 }
 
 #ng-app rect{
@@ -92,7 +104,7 @@
 	font-size:100%;
 }
 
-#ng-app a {color:rgb(5,55,105);}
+#ng-app a {color:rgb(5,55,105);width:auto;}
 
 #ng-app p{padding-left:0px;}
 
@@ -106,14 +118,20 @@
 #ng-app .resourceBox{
 	width:100%;
 	padding:0px;
-	margin:0px;
+	margin:0px 0px 0px 0%;
 	float:left;
 }
 
 #ng-app .resourceBox .inner{
 	padding:2px 1% 2px 1%;
-	border: 1px solid #d1d1d1;
-	width:98%;
+	border: 1px solid #B8C0CC;
+	background: #ffffff;
+	width:97.5%;
+}
+
+#ng-app .resourceBox .inner.prominent{
+	background:#B8C0CC;
+	border-color:#73787F;
 }
 
 #ng-app .resourceBoxes .title{
@@ -148,32 +166,48 @@ user-select: none;
 }
 
 #ng-app .resourceBoxes{
-	width:285px;
+	width:85%;
+	margin-left:2%;
+	padding:10px 1.5% 15px 1.5%;
+	margin-bottom:12px;
 	float:left;
-	max-width:500px;
+	max-width:950px;
+	border:0px solid #d1d1d1;
 }
+
+#ng-app .resourceBoxes.full{
+	width:90%;
+}
+
+#ng-app .orange-back{
+	background-color:#FFB33C;
+}
+
+/*#ng-app .resourceBoxes.left{width:55%;}
+#ng-app .resourceBoxes.right{width:30%;}*/
 
 /*RESPONSIVE PORTION*/
-#ng-app{width:950px;}
-/*"not smaller than 0px and not larger than 760"*/
-@media (min-width:0px) and (max-width:980px){
+#ng-app{width:100%}
+/*between min-width and max width (BI breaks at 980, with widths going to 100%)*/
+@media (min-width:0px) and (max-width:680px){
 	#ng-app{
 		width:100%;
 	}
 
-	#ng-app .resourceBoxes{
-		width:85%;
+	#ng-app .resourceBoxes.left, #ng-app .resourceBoxes.right{
+		width:90%;
+		border:none;
+		padding-right:1.5%;
 	}
 }
 
-@media (min-width:980px){
+@media (min-width:680px){
 	#ng-app{
 		width:100%;
 	}
 
-	#ng-app .resourceBoxes{
-		width:285px;
-	}
+	#ng-app .resourceBoxes.left{width:53%;padding-right:4%;border-right:1px solid #d1d1d1;}
+	#ng-app .resourceBoxes.right{width:34%;}
 }
 
 /**********************************************************************/
