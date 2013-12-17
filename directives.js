@@ -53,7 +53,7 @@ angular.module('directives',[]).directive('usMap', ['d3Service','$window',functi
           var w = i[0].offsetWidth <= 710 ? i[0].offsetWidth : 710;
           //console.log(w);
           var h = w*(.64);
-          var dots = [4,5.5,7];
+          var dots = [4,6,9];
           var fs = ["9px","9px","11px"];
           s.mapDim = {scale:w*1.32, translate:[(w/2)-8,(h/2)-8]};
           var sml = s.mapDim.scale < 600 ? 0 : (s.mapDim.scale < 800 ? 1 : 2); //small, medium, or large: 1,2, or 3
@@ -120,7 +120,11 @@ angular.module('directives',[]).directive('usMap', ['d3Service','$window',functi
             })
             .style("fill",function(d,i){
               //return "url(#gradient2)";
-              if(d in s.gcxmetros){return "#FFB33C"}
+              if(d in s.gcxmetros){
+                var col = [null,"#FFB33C","#fee090","#abd9e9","#4575b4"];
+                var ll = latlon.metros[d];
+                return col[ll.Cohort];
+              }
               return "rgba(255,250,178,1)";
             })
             ;

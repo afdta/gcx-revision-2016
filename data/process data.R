@@ -4,6 +4,8 @@ setwd("/home/alec/ShareDrive/Dropbox/Projects/Brookings/DataViz/GCX/data")
 
 ##GEO DATA
 latlon <- read.csv("All366Metros_LatLon.csv",stringsAsFactors=FALSE)
+cohorts <- read.csv("GCX Cohorts.csv",stringsAsFactors=FALSE,na.strings=c("","NA"))
+
 latlon$T100 <- latlon$Largest100
 #latlon <- latlon[latlon$Largest100==1,]
 
@@ -11,12 +13,14 @@ latlon$name <- nameshort(latlon$Metro_Name,"MetroST")
 latlon$shortname <- nameshort(latlon$Metro_Name,"MetST")
 latlon$firstcity <- nameshort(latlon$Metro_Name,"Met")
 
-ll <- latlon[,c("CBSA_Code","name","firstcity","Lon","Lat","T100")]
+ll <- merge(latlon,cohorts,by.x="firstcity",by.y="Metro",all.x=TRUE) #imperfect, because non-GCX metros with the same name get tagged, but it won't have an effect
+
+ll <- ll[,c("CBSA_Code","name","firstcity","Lon","Lat","T100","Cohort")]
 ll$CBSA_Code <- paste("M",ll$CBSA_Code,sep="")
 
 latLonList <- list()
 for(i in 1:nrow(ll)){
-  latLonList[[ll[i,"CBSA_Code"]]] <- ll[i,c("name","firstcity","Lon","Lat","T100")]
+  latLonList[[ll[i,"CBSA_Code"]]] <- ll[i,c("name","firstcity","Cohort","Lon","Lat","T100")]
 }
 
 setup <- list(metroUniverse=ll$CBSA_Code,metros=latLonList)
