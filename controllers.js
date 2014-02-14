@@ -1,4 +1,4 @@
-angular.module('GCXResources', ['controllers','directives','services'])
+angular.module('GCXResources', ['controllers','directives'])
 
 angular.module('GCXResources').config(function($sceProvider){
   $sceProvider.enabled(false);
@@ -44,7 +44,7 @@ angular.module('controllers',[]).controller("GCXCtrl",['$scope','$http','$locati
   }
   $scope.$watch(metrolinkwatch,function(n,o){
     //console.log("WATCH-BEGIN");
-    var AP = []; //rebuild the list of available products
+    var AP = []; //rebuild the list of available products depending on selections
     if($scope.links === null){return} //if the link list isn't available yet, return
     if($scope.metro !== "none" && $scope.chosenProduct === '...'){
       //view all products for chosen metro area
@@ -129,7 +129,7 @@ angular.module('controllers',[]).controller("GCXCtrl",['$scope','$http','$locati
   $scope.path = getPath(); //keep track of which geo is being viewed
   */
 
-  //LOAD UP REPORT DATA
+  //LOAD UP REPORT DATA, POPULATE THE UNIVERSE OF PRODUCTS, AND PULL OUT THE LIST OF OVERVIEW DOCS
   $http.get($scope.assetRepo + '/links.json').success(function(data) {
     $scope.links = data;
     $scope.linkOptions = [];
@@ -153,13 +153,13 @@ angular.module('controllers',[]).controller("GCXCtrl",['$scope','$http','$locati
 
     for(var n in data){
     	for(var nn=0; nn<data[n].length; nn++){
-    		console.log(data[n][nn]);
+    		//console.log(data[n][nn]);
     		if(data[n][nn].name.toLowerCase()=="export plan summary" && data[n][nn].link !== null){
     			$scope.overviewDocs.push({metro:$scope.metroID[n].firstcity+" » ", url:data[n][nn].link});
     		}
     	}
     }
-    console.log($scope.overviewDocs);
+    //console.log($scope.overviewDocs);
   });
 
 }]);

@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <title>Data Resources at Brookings</title>
   <link rel="stylesheet" href="eitcstyle.css">
+ 
   <script type="text/javascript" src="angularmin.js"></script>
   <script type="text/javascript" src="angularanimatemin.js"></script>
- 
-  <script type="text/javascript" src="services.js"></script>
   <script type="text/javascript" src="directives.js"></script>
+
   <script type="text/javascript" src="controllers.js"></script>
   <!--[if lte IE 8]>
       <script src="/~/media/multimedia/interactives/2013/GCXMedia/json3.js"></script>
@@ -24,14 +24,15 @@
 		   ng-mouseDown='setMetro(m)'>
 		   {{m.ShortName}}
 		</p>
+		<h3 style="margin-bottom:0px;padding-left:1.5%">Metropolitan Areas Participating in the Exchange</h3>
 		<div us-map style="float:left;width:100%;clear:left;"></div>
 		<div class="group" style="float:left;width:100%">
 			<div class="group resourceBoxes full">
-				<h3>Overview of Metro Area Efforts to Date</h3>
-				<p style="font-style:italic;clear:left;margin-bottom:0px;">For concise descriptions of metro area efforts as part of the Exchange, look here. For more in-depth information, see the other resources on this page.</p>
+				<h3>Overview of Metro Area Efforts</h3>
+				<p style="font-style:italic;clear:left;margin-bottom:0px;">For summaries of completed export plans and metro area progress to date, look here. For more in-depth information, see the other resources on this page.</p>
 				<div class="resourceBox group">
 					<ul>
-						<li style="margin-right:8px;float:left;width:auto"><a href="" style="pointer-events:none">Links (PDF): </a></li>
+						<li style="margin-right:8px;float:left;width:auto"><a href="" style="pointer-events:none;color:rgb(51,51,51)">Links (PDF): </a></li>
 						<li style="margin-right:14px;float:left;width:auto" ng-repeat="p in overviewDocs track by p.url"><a href={{p.url}}>{{p.metro}}</a></li>
 					</ul>
 				</div>
@@ -64,10 +65,10 @@
 				<h3>The Exchange Toolkit</h3>
 				<p style="font-style:italic;clear:left;margin-bottom:8px;">Brookings' how-to guides for the planning process, and other tools.</p>
 
-				<a class="toolkit" href="http://www.brookings.edu/research/papers/2012/08/metro-exports-guide">Ten Steps to Delivering a Successful Metro Export Plan » </a>
-				<a class="toolkit" href="http://www.brookings.edu/research/interactives/export-nation">Export Nation 2013 (Comprehensive Data) » </a>
-				<a class="toolkit" href="http://www.brookings.edu/~/media/Projects/state metro innovation/export initiative surveys/export survey template.pdf">One-on-One Business Interview Form (PDF) » </a>
-				<a class="toolkit" href="http://www.brookings.edu/~/media/Projects/state metro innovation/export initiative surveys/export business template.pdf">Business Survey Template (PDF) » </a>
+				<a class="toolkit" href="http://www.brookings.edu/research/papers/2012/08/metro-exports-guide">Ten Steps to Delivering a Successful Metro Export <span>Plan »</span></a>
+				<a class="toolkit" href="http://www.brookings.edu/research/interactives/export-nation">Export Nation 2013 (Comprehensive <span>Data) »</span></a>
+				<a class="toolkit" href="http://www.brookings.edu/~/media/Projects/state metro innovation/export initiative surveys/export survey template.pdf">One-on-One Business Interview Form <span>(PDF) »</span></a>
+				<a class="toolkit" href="http://www.brookings.edu/~/media/Projects/state metro innovation/export initiative surveys/export business template.pdf">Business Survey Template <span>(PDF) »</span></a>
 
 			</div>
 		</div>
@@ -76,6 +77,6 @@
 	</div>
 </div>
 
-
+  <script type="text/javascript" src="services.js"></script>
 </body>
 </html>

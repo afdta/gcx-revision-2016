@@ -1,6 +1,6 @@
-angular.module('directives',[]).directive('usMap', ['d3Service','$window',function(d3,$window){
+angular.module('directives',['services']).directive('usMap', ['d3Service','$window',function(d3,$window){
   return {
-    template:'<div style="width:100%;min-width:300px;min-height:260px;height:100%"></div>',
+    template:'<div style="width:100%;min-width:300px;min-height:260px;height:100%;position:relative"></div>',
     replace:false,
     scope:false,
     link:function(s,i,a){
@@ -42,6 +42,7 @@ angular.module('directives',[]).directive('usMap', ['d3Service','$window',functi
         var borders = svg.append("g").attr("filter","url(#dropShadow)");
         var dots = svg.append("g");
         var anno = svg.append("g");
+        var legend = svg.append("g");
         var stjson = s.stjson;
         var latlon = s.latlon;
 
@@ -51,15 +52,17 @@ angular.module('directives',[]).directive('usMap', ['d3Service','$window',functi
         i.css("overflow","visible");
         s.rescale = function(){
           var w = i[0].offsetWidth <= 710 ? i[0].offsetWidth : 710;
-          //console.log(w);
-          var h = w*(.64);
+          var w_ = w-0; //allows a gap, if desired on right side of map ()
+          var h = w_*(.64) + 30;
           var dots = [4,6,9];
           var fs = ["9px","9px","11px"];
-          s.mapDim = {scale:w*1.32, translate:[(w/2)-8,(h/2)-8]};
+          s.mapDim = {scale:w_*1.32, translate:[(w_/2)-8,(h/2)+10]};
           var sml = s.mapDim.scale < 600 ? 0 : (s.mapDim.scale < 800 ? 1 : 2); //small, medium, or large: 1,2, or 3
           s.mapDim.r = dots[sml];
           s.mapDim.fs = fs[sml];
-          s.mapDim.level = sml; 
+          s.mapDim.level = sml;
+          s.mapDim.h = h-15;
+          s.mapDim.fourth = 130; 
           i.css("height",h+"px");
           //i.css("width",w+"px");
           //svg.style({"height":h,"width":w});
@@ -94,6 +97,14 @@ angular.module('directives',[]).directive('usMap', ['d3Service','$window',functi
             .attr("y",function(d,i){return latlon.metros[d].lonlat[1];})
             .style("font-size",s.mapDim.fs);
         }
+
+        legend.attr("transform","translate(3,"+(0)+")");
+        var legendG = legend.selectAll("g").data([{c:"#FFB33C",n:"Started early 2011"},{c:"#fee090",n:"Started late 2012"},{c:"#abd9e9",n:"Started late 2013"}])
+              .enter().append("g").attr("transform",function(d,i){
+                return "translate(" + (i*s.mapDim.fourth+15) + ",0)"
+              })
+            legendG.append("circle").attr({"cx":4,"cy":15,"r":7}).style("fill",function(d,i){return d.c}).style("stroke","#ffffff");
+            legendG.append("text").attr({"x":15,"y":20}).text(function(d,i){return d.n});
 
         //var u = Math.sqrt(0.5);
         borders.append("path").attr("d",path(stjson)).style({"fill":"#B8C0CC","stroke":"rgba(255,255,255,0)","stroke-width":"0.5px"});
@@ -177,8 +188,8 @@ angular.module('directives',[]).directive('usMap', ['d3Service','$window',functi
         var searchBox = document.getElementById("metroSelectBox")
         gcxDots.on("mousedown",function(d,i){
           s.$apply(s.metro=d);
-          d3.select(searchBox).transition().duration(20).style("background-color","#FFB33C").each("end",function(){
-            d3.select(this).transition().delay(200).duration(500).style("background-color","#ffffff");
+          d3.select("#metroSelectBox").transition().duration(20).style("background","#FFB33C").each("end",function(){
+            d3.select(this).transition().delay(200).duration(500).style("background","#ffffff");
           })
         });
 

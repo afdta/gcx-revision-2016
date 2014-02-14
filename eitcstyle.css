@@ -70,7 +70,7 @@
 #ng-app h3,#ng-app a{font-size:120%;text-decoration:none;}
 #ng-app h4, #ng-app h5{font-size:80%;padding:3px 3px 3px 0px;margin:2px 0px 2px 0px;}
 
-#ng-app select,#ng-app a,#ng-app input,#ng-app ul li,#ng-app span{
+#ng-app select,#ng-app a,#ng-app input,#ng-app ul li{
 	font-family: Arial;
 	font-weight:normal;
 	font-size:80%;
@@ -81,6 +81,10 @@
 	width:100%;
 	background:none;
 	background-image:none;
+}
+
+#ng-app a span{
+	white-space:nowrap;
 }
 
 #ng-app text{
@@ -167,7 +171,7 @@ user-select: none;
 
 #ng-app .resourceBoxes{
 	width:85%;
-	margin-left:2%;
+	margin-left:0%;
 	padding:10px 1.5% 15px 1.5%;
 	margin-bottom:12px;
 	float:left;
@@ -198,6 +202,7 @@ user-select: none;
 		width:90%;
 		border:none;
 		padding-right:1.5%;
+		padding-left:1.5%;
 	}
 }
 
@@ -207,7 +212,7 @@ user-select: none;
 	}
 
 	#ng-app .resourceBoxes.left{width:53%;padding-right:4%;border-right:1px solid #d1d1d1;}
-	#ng-app .resourceBoxes.right{width:34%;}
+	#ng-app .resourceBoxes.right{width:34%;padding-left:4%;}
 }
 
 /**********************************************************************/

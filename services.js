@@ -1,5 +1,6 @@
 angular.module('services',[])
-.factory('d3Service', [function(){
+
+angular.module('services').factory('d3Service', [function(){
 //check that SVG is supported
 if(!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1")){return false}
 
@@ -13,3 +14,7 @@ n.call(t,t[i],i)<e?r=i+1:u=i}return r},right:function(t,e,r,u){for(arguments.len
 //end source code
 return d3;
 }]);
+
+
+
+
