@@ -1,6 +1,6 @@
 library(RJSONIO)
 library(metrotools)
-setwd("/home/alec/ShareDrive/Dropbox/Projects/Brookings/DataViz/GCX/data")
+setwd("/home/alec/Dropbox/Projects/Brookings/DataViz/GCX/data")
 
 ##GEO DATA
 latlon <- read.csv("All366Metros_LatLon.csv",stringsAsFactors=FALSE)
