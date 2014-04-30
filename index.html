@@ -33,7 +33,7 @@
 				<div class="resourceBox group">
 					<ul>
 						<li style="margin-right:8px;float:left;width:auto"><a href="" style="pointer-events:none;color:rgb(51,51,51)">Links (PDF): </a></li>
-						<li style="margin-right:14px;float:left;width:auto" ng-repeat="p in overviewDocs track by p.url"><a href={{p.url}}>{{p.metro}}</a></li>
+						<li style="margin-right:14px;float:left;width:auto" ng-repeat="p in overviewDocs track by p.url"><a class="overview-link" href={{p.url}}>{{p.metro}}</a></li>
 					</ul>
 				</div>
 			</div>
@@ -56,20 +56,25 @@
 				<div class="resourceBox group"><div class="inner group" style="padding-top:10px;padding-bottom:10px;">
 					<p style="margin-left:5px;">{{linkMessage}}</p>
 					<ul>
-						<li style="margin-left:5px;" ng-repeat="p in availableProducts track by p.url"><a href={{p.url}}>{{p.text}}</a></li>
+						<li style="margin-left:5px;" ng-repeat="p in availableProducts track by p.url"><a class="product-link" href={{p.url}}>{{p.text}}</a></li>
 					</ul>
 					<p ng-hide="hideFootnote" style="float:left;margin:10px 0px 5px 5px;color:rgb(150,150,150);font-size:11px"> *Hosted on an external site.</p>
 				</div></div>
 			</div>
 			<div class="group resourceBoxes right" style="margin-bottom:0px;padding-bottom:0px;">
 				<h3>The Exchange Toolkit</h3>
-				<p style="font-style:italic;clear:left;margin-bottom:8px;">Brookings' how-to guides for the planning process, and other tools.</p>
+				<p style="font-style:italic;clear:left;margin-bottom:15px;">Brookings' how-to guides for the planning process, and other tools.</p>
 
 				<a class="toolkit" href="http://www.brookings.edu/research/papers/2012/08/metro-exports-guide">Ten Steps to Delivering a Successful Metro Export <span>Plan »</span></a>
 				<a class="toolkit" href="http://www.brookings.edu/research/interactives/export-nation">Export Nation 2013 (Comprehensive <span>Data) »</span></a>
-				<a class="toolkit" href="http://www.brookings.edu/~/media/Projects/state metro innovation/export initiative surveys/export survey template.pdf">One-on-One Business Interview Form <span>(PDF) »</span></a>
-				<a class="toolkit" href="http://www.brookings.edu/~/media/Projects/state metro innovation/export initiative surveys/export business template.pdf">Business Survey Template <span>(PDF) »</span></a>
 
+				<a class="toolkit" href="http://www.brookings.edu/~/media/multimedia/interactives/2013/GCXMedia/Guides/Market Assessment Guide.pdf">Market Assessment Guide <span>(PDF) »</span></a>
+
+				<a class="toolkit" href="http://www.brookings.edu/~/media/multimedia/interactives/2013/GCXMedia/Guides/Sample Business Survey.pdf">Sample Business Survey <span>(PDF) »</span></a>
+
+				<a class="toolkit" href="http://www.brookings.edu/~/media/multimedia/interactives/2013/GCXMedia/Guides/Sample Business Interview Form.pdf">Sample Business Interview Form <span>(PDF) »</span></a>
+
+				<a class="toolkit" href="http://www.brookings.edu/~/media/multimedia/interactives/2013/GCXMedia/Guides/Championing Your Metro Export Initiative.pdf">Championing Your Metro Export Initiative <span>(PDF) »</span></a>
 			</div>
 		</div>
 	</div>

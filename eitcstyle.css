@@ -55,6 +55,12 @@
 
 #ng-app a.toolkit{
 	margin-bottom:10px;
+	text-transform:uppercase;
+	font-size:70%;
+}
+
+#ng-app a.overview-link:hover, #ng-app a.toolkit:hover, #ng-app a.product-link:hover{
+	color:rgb(0,117,235);
 }
 
 #ng-app .light{font-weight:300;}
