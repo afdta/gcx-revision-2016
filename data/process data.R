@@ -4,6 +4,7 @@ setwd("/home/alec/Dropbox/Projects/Brookings/DataViz/GCX/data")
 
 ##GEO DATA
 latlon <- read.csv("All366Metros_LatLon.csv",stringsAsFactors=FALSE)
+latlonN <- read.csv("Top100NECTAS_LatLon.csv",stringsAsFactors=FALSE)
 cohorts <- read.csv("GCX Cohorts.csv",stringsAsFactors=FALSE,na.strings=c("","NA"))
 
 latlon$T100 <- latlon$Largest100
@@ -12,6 +13,17 @@ latlon$T100 <- latlon$Largest100
 latlon$name <- nameshort(latlon$Metro_Name,"MetroST")
 latlon$shortname <- nameshort(latlon$Metro_Name,"MetST")
 latlon$firstcity <- nameshort(latlon$Metro_Name,"Met")
+
+latlonN$nm <- nameshort(latlonN$Metro_Name,"MetroST")
+latlonN$shrtnm <- nameshort(latlonN$Metro_Name,"MetST")
+latlonN$city <- nameshort(latlonN$Metro_Name,"Met")
+latlonN$t100 <- latlonN$Largest100
+latlonN$gcode <- paste("M",latlonN$CBSA_Code,sep="")
+latlonN$lat <- latlonN$Lat
+latlonN$lon <- latlonN$Lon
+library(jsonlite)
+nectas <- toJSON(latlonN[,c("gcode","nm","shrtnm","city","t100","lon","lat")])
+writeLines(nectas,"NECTAS100.json")
 
 ll <- merge(latlon,cohorts,by.x="firstcity",by.y="Metro",all.x=TRUE) #imperfect, because non-GCX metros with the same name get tagged, but it won't have an effect
 
