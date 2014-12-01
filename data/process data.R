@@ -1,8 +1,10 @@
 library(RJSONIO)
-library(metrotools)
+library(metromonitor)
 setwd("/home/alec/Dropbox/Projects/Brookings/DataViz/GCX/data")
 
-##GEO DATA
+#For simple update of links, etc., skip to section 2 
+
+##Section 1 - GEO DATA
 latlon <- read.csv("All366Metros_LatLon.csv",stringsAsFactors=FALSE)
 latlonN <- read.csv("Top100NECTAS_LatLon.csv",stringsAsFactors=FALSE)
 cohorts <- read.csv("GCX Cohorts.csv",stringsAsFactors=FALSE,na.strings=c("","NA"))
@@ -46,7 +48,7 @@ setupJS <- gsub("\\]\\s*","]",setupJS)
 
 writeLines(setupJS,"metros.json")
 
-#web resources
+#Section 2 - web resources
 links <- read.csv("WebResources.csv",stringsAsFactors=FALSE,na.strings=c("","NA"))
 #links2 <- merge(ll[,c("firstcity","CBSA_Code")],links,by.x="firstcity",by.y="Metro",all.y=TRUE)
 #write.csv(links2,file="WebResources.csv",row.names=FALSE)
