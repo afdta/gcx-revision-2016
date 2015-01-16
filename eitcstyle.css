@@ -96,7 +96,7 @@
 #ng-app text{
 	font-family: Arial, Serif;
 	text-rendering:optimizeLegibility;
-	fill:#0664B2;
+	fill:#555555;
 	font-size:11px;
 	text-anchor:start;
 	pointer-events:none;

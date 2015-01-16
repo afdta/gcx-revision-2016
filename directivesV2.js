@@ -49,6 +49,13 @@ angular.module('directives',['services']).directive('usMap', ['d3Service','$wind
         var proj = d3.geo.albersUsa();  
         var path = d3.geo.path(); 
 
+        var annoTextPos = function(d,i){
+          var above = true;
+          var y = latlon.metros[d].lonlat[1];
+          if(d in {"M41180":1}){above=false};
+          return above ? y-s.mapDim.r-5 : y+s.mapDim.r+5;
+        }
+
         i.css("overflow","visible");
         s.rescale = function(){
           var w = i[0].offsetWidth <= 710 ? i[0].offsetWidth : 710;
@@ -94,12 +101,12 @@ angular.module('directives',['services']).directive('usMap', ['d3Service','$wind
           })
           anno.selectAll("text")
             .attr("x",function(d,i){return latlon.metros[d].lonlat[0];})
-            .attr("y",function(d,i){return latlon.metros[d].lonlat[1];})
+            .attr("y",annoTextPos)
             .style("font-size",s.mapDim.fs);
         }
 
         legend.attr("transform","translate(3,"+(0)+")");
-        var legendG = legend.selectAll("g").data([{c:"#FFB33C",n:"Started early 2011"},{c:"#fee090",n:"Started late 2012"},{c:"#abd9e9",n:"Started late 2013"}])
+        var legendG = legend.selectAll("g").data([{c:"#FFB33C",n:"Started early 2011"},{c:"#fee090",n:"Started late 2012"},{c:"#abd9e9",n:"Started late 2013"},{c:"#4575b4",n:"Started early 2015"}])
               .enter().append("g").attr("transform",function(d,i){
                 return "translate(" + (i*s.mapDim.fourth+15) + ",0)"
               })
@@ -107,7 +114,7 @@ angular.module('directives',['services']).directive('usMap', ['d3Service','$wind
             legendG.append("text").attr({"x":15,"y":20}).text(function(d,i){return d.n});
 
         //var u = Math.sqrt(0.5);
-        borders.append("path").attr("d",path(stjson)).style({"fill":"#B8C0CC","stroke":"rgba(255,255,255,0)","stroke-width":"0.5px"});
+        borders.append("path").attr("d",path(stjson)).style({"fill":"#d1d1d1","stroke":"rgba(255,255,255,0)","stroke-width":"0.5px"});
         dots.selectAll("path").data(latlon.metroUniverse).enter().append("path").attr("d",function(d,i){
           var ll = latlon.metros[d];
           ll.lonlat = proj([ll.Lon,ll.Lat]); //mutate original data
@@ -148,12 +155,12 @@ angular.module('directives',['services']).directive('usMap', ['d3Service','$wind
 
         anno.selectAll("text").data(latlon.metroUniverse).enter().append("text")
             .attr("x",function(d,i){return latlon.metros[d].lonlat[0];})
-            .attr("y",function(d,i){return latlon.metros[d].lonlat[1];})
+            .attr("y",annoTextPos)
             .text(function(d,i){
               return (d in s.gcxmetros) ? latlon.metros[d].firstcity : "";
             })
             .attr({"dx":"-4px","dy":"4px"})
-            .style("font-size",s.mapDim.fs);
+            .style({"font-size":s.mapDim.fs,"text-anchor":"middle"});
 
         //setTimeout(function(){gcxDots.attr("r",25);},1500);
         gcxDots.on("mouseover",function(d,i){
