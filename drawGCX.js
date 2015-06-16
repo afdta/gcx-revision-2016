@@ -230,6 +230,7 @@
 		WRAP.classed("gcx-products-open",FEED_SHOWN);
 	}
 	WRAP.on("mousedown",function(){openClose("close")});
+	FEED.on("mousedown",function(){d3.event.stopPropagation();})
 
 	function scrollTopTween(dist){
 		try{

@@ -169,6 +169,7 @@ user-select: none;
 
 #ng-app.gcx-products-open #gcx-products{
 	right:0%;
+	right:calc(0% - 1px);
 }
 
 #ng-app #gcx-products-inner{
@@ -244,8 +245,8 @@ user-select: none;
 	border-radius:5px 5px 0px 0px;
 	padding-bottom:5px;
 	cursor:pointer;
-	border:1px solid #dddddd;
-	border-width:1px 1px 0px 1px;
+	border:0px solid #dddddd;
+	/*border-width:1px 1px 0px 1px;*/
 	margin-right:0px;
 }
 #ng-app.gcx-products-open #select-metro-area{
@@ -273,8 +274,12 @@ user-select: none;
 }
 
 #ng-app #toolkit-phase-1 p:first-child, #ng-app #toolkit-phase-2 p:first-child{
-	font-weight:bold;
 	margin:2px 2px 5px 3px;
+	
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+	font-weight: bold;
 }
 
 #ng-app #toolkit-wrap a{
