@@ -27,11 +27,22 @@
 	margin:0px;
 }
 
-#ng-app h1,#ng-app h2,#ng-app h3,#ng-app h4,#ng-app h5,#ng-app a, #ng-app p{
+#ng-app h1,#ng-app h2,#ng-app h3,#ng-app h4,#ng-app h5, #ng-app p{
 	font-family:Arial;
 	padding:0px;
 	margin:0px;
 	color:#333333;
+}
+
+#ng-app p.reading{
+	line-height:1.4em;
+	margin-bottom:1em;
+}
+
+#ng-app a{
+	font-family:Arial;
+	text-decoration:none;
+	color:#20558A;
 }
 
 #ng-app a span{white-space:nowrap;}
@@ -184,7 +195,7 @@ user-select: none;
 /*FEED AREA*/
 #ng-app .metro-card{
 	margin:5px 5px 0px 10px;
-	padding:7px 10px 5px 10px;
+	padding:0px 10px 0px 10px;
 	background-color:#ffffff;
 	border:1px solid #dddddd;
 	border-radius:5px;
@@ -198,10 +209,11 @@ user-select: none;
 	margin-bottom:400px;
 }
 
-#ng-app .metro-card .card-title{font-weight:bold; cursor:pointer;font-size:15px; clear:both;}
-#ng-app .metro-card.no-content{pointer-events:none;opacity:0.75;}
+#ng-app .metro-card .card-title{font-weight:bold; cursor:pointer;font-size:15px;}
+#ng-app .metro-card .card-title a{display:block;padding:5px 0px 3px 0px;}
+#ng-app .metro-card.no-content{pointer-events:none;opacity:0.75;padding:5px 10px 3px 10px;}
 #ng-app .metro-card.no-content .card-title{color:#999999; font-weight:normal;}
-#ng-app .metro-card.no-content .card-title:after{content:"In progress";font-size:13px;font-style:italic;float:right;}
+#ng-app .metro-card.no-content .card-title:after{content:" (planning in progress)";font-style:italic;}
 /*#ng-app .metro-card.metro-card-isopen .card-title{
 	border-bottom:1px solid #999999;
 	padding:4px 0px 4px 0px;
@@ -234,7 +246,7 @@ user-select: none;
 
 #ng-app .metro-card .report-title{margin-bottom:3px;font-size:13px;}
 #ng-app .metro-card .report-title > a{color:rgb(32, 85, 138);text-decoration:none;}
-#ng-app .metro-card .report-title > a:after{content:" »";font-size:16px;}
+#ng-app .metro-card .report-title > a:after, #ng-app .metro-card .card-title > a:after{content:" »";font-size:16px;}
 
 #ng-app .metro-card .report-description{font-size:13px;}
 
@@ -254,26 +266,14 @@ user-select: none;
 	margin-right:0px;
 }
 
-#ng-app .toolkit-section{
-	float:left;
-	width:45%;
-	border:1px solid #dddddd;
-	padding:15px 2% 15px 2%;
-	margin-bottom:10px;
-	background-color:rgb(240,240,240);
-}
-
-#ng-app #products-wrap > div{
+#ng-app .gray-box-wrap > div{
 	background-color: rgb(240,240,240);
 	border:1px solid #dddddd;
 	padding:15px 2% 15px 2%;
 }
 
-#ng-app .toolkit-section#toolkit-phase-2{
-	float:right;
-}
 
-#ng-app #toolkit-phase-1 p:first-child, #ng-app #toolkit-phase-2 p:first-child{
+#ng-app .toolkit-section p:first-child{
 	margin:2px 2px 5px 3px;
 	
 	font-size: 13px;
@@ -282,32 +282,85 @@ user-select: none;
 	font-weight: bold;
 }
 
-#ng-app #toolkit-wrap a{
+#ng-app .list-o-links a{
 	display:block;
 	position:relative;
 	font-size:15px;
 	text-decoration:none;
 	margin:10px 0px 0px 15px;
-	color:#20558a;
 }
 
-#ng-app #toolkit-wrap a:before{
+#ng-app .list-o-links a:before{
 	position:absolute;
 	left:-12px;
 	content:"• ";
+}
+
+#ng-app div.report-cover{
+	float:left;
+	display:block;
+	width:23%;
+	margin:0px;
+	padding:0px;
+	margin:8px 2% 2px 0px;
+	position:relative;
+	overflow:hidden;
+}
+
+#ng-app div.report-cover .overlay{
+	position:absolute;
+	top:-100%;
+	height:100%;
+	width:100%;
+	pointer-events:none;
+
+	-webkit-transition: top 0.5s;
+	-moz-transition: top 0.5s
+    transition: top 0.5s;
+}
+
+#ng-app div.report-cover:hover .overlay{
+	top:0%;
+}
+
+#ng-app div.report-cover .overlay p{
+	padding:5%;
+	font-size:13px;
+	font-weight:bold;
+	background-color:rgba(255,255,255,0.85);
+}
+
+#ng-app div.report-cover a{
+	display:block;
+	width:100%;
+}
+
+#ng-app .report-cover a img{
+	width:100%;
+}
+
+#ng-app .product-header{
+	font-size:15px;
+	margin-top: 1em;
+}
+#ng-app .product-header:first-child{
+	margin-top:0px;
+}
+#ng-app .product-header a{
+	font-weight:normal;
+	text-transform:none;
 }
 
 @media (min-width:0px){
 	#ng-app #us-map-wrap{display:none;}
 	#ng-app #gcx-products{width:100%;right:0%;}
 	#ng-app #select-metro-area{display:none;}
-	#ng-app #toolkit-phase-1, #ng-app #toolkit-phase-2{width:96%;width:calc(96% - 2px);}
-	
+	#ng-app div.report-cover{width:48%;}
 }
 
 @media (min-width:480px){
 	#ng-app #us-map-wrap{display:block;}
 	#ng-app #gcx-products{width:60%;right:-101%;}
 	#ng-app #select-metro-area{display:block;}
-	#ng-app #toolkit-phase-1, #ng-app #toolkit-phase-2{width:45%;}
+	#ng-app div.report-cover{width:23%;}
 }

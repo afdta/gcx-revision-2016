@@ -266,8 +266,18 @@
 		titles.enter().append("p").classed("card-title no-select-text",true);
 		titles.exit().remove();
 
-		titles.text(function(d,i){
-			return d.name;
+		var links = titles.html(function(d,i){
+			if(d.plans.length === 0){
+				return d.name;
+			}
+			else{
+				return '<a href="' + d.plans[0].url + '" target="_blank">' + d.name + " plan</a>"
+			}
+		})
+
+
+		/*titles.text(function(d,i){
+			return d.plans.length === 0 ? d.name : "";
 		});
 
 		//wrapper for all report items
@@ -276,9 +286,11 @@
 		wrap.exit().remove();
 
 		//report items
-		var reports = wrap.selectAll("div.report-item").data(function(d,i){return d.plans});
+		var reports = wrap.selectAll("div.report-item").data(function(d,i){
+			return d.plans;
+		});
 		reports.enter().append("div").classed("report-item",true);
-		reports.exit().remove();
+		reports.exit().remove();*/
 
 		//date: ""datePrint: ""day: ""description: ""id: "24340"title: ""type: ""url: ""
 
@@ -289,19 +301,19 @@
 		rdate.exit().remove();
 		rdate.text(function(d,i){return d});*/
 
-		var rtitle = reports.selectAll("p.report-title").data(function(d,i){
-			return [d];
-		});
-		rtitle.enter().append("p").classed("report-title no-select-text",true);
-		rtitle.exit().remove();
-		rtitle.html(function(d,i){return '<a href="' + d.url + '" target="_blank">' + d.title + '</a>'});
+		//var rtitle = reports.selectAll("p.report-title").data(function(d,i){
+		//	return [d];
+		//});
+		//rtitle.enter().append("p").classed("report-title no-select-text",true);
+		//rtitle.exit().remove();
+		//rtitle.html(function(d,i){return '<a href="' + d.url + '" target="_blank">' + d.title + '</a>'});
 
 		/*var description = reports.selectAll("p.report-description").data(function(d,i){return [d.description]});
 		description.enter().append("p").classed("report-description",true);
 		description.exit().remove();
 		description.text(function(d,i){return d});*/
 
-		rtitle.on("mousedown",function(d,i){d3.event.stopPropagation();});
+		//rtitle.on("mousedown",function(d,i){d3.event.stopPropagation();});
 		titles.on("mousedown",function(d,i){
 			var parent = this.parentNode;
 			d3.event.stopPropagation();
@@ -311,7 +323,7 @@
 
 			SELECT_TILE = parent;
 
-			scrollToTop();
+			//scrollToTop();
 
 		});
 		d3.select("#ng-app #select-metro-area").on("mousedown",function(){
@@ -328,12 +340,15 @@
 	var parser = function(d){
 		var ep = d.Export_Plan !== "" ? {title:"Export plan", url: d.Export_Plan} : null;
 		var gti = d.Global_Trade_and_Investment_Plan;
-		var fp = gti !== "" ? {title:"FDI plan", url:gti} : null;
+		var fp = gti !== "" ? {title:"Global Trade and Investment plan", url:gti} : null;
 		var plans = [];
-		if(ep){plans.push(ep)}
+
 		if(fp){plans.push(fp)}
+		else if(ep){plans.push(ep)}
+		//else{plans.push({title:"Planning in progress", url:null})}
+
 		//need an entry for no plans completed
-		return {id:d.CBSA_Code, name:d.firstcity + " metro area", plans:plans};
+		return {id:d.CBSA_Code, name:$scope.metroID[d.CBSA_Code].firstcity, name2:d.firstcity, plans:plans};
 	}
 
 	d3.csv(($scope.REPO + CURRENT_GCX_DATA_FILE), parser, function(E,D){
@@ -354,7 +369,7 @@
 		}
 	});
 
-	var tkBoxes = d3.selectAll(".toolkit-section").select("div");
+	//var tkBoxes = d3.selectAll(".toolkit-section").select("div");
 	function resizeFeed(){
 		var r1 = FEED.node().getBoundingClientRect();
 		var r2 = FEED_TITLE.node().getBoundingClientRect();
@@ -369,7 +384,7 @@
 		}
 
 		//resize toolkit
-		var maxRankBox = 200;
+		/*var maxRankBox = 200;
 		tkBoxes.each(function(d,i,a){
 			try{
 				var r = this.getBoundingClientRect();
@@ -382,7 +397,7 @@
 				if(h > maxRankBox){maxRankBox = h}
 			}
 		});
-		tkBoxes.style("min-height",maxRankBox+"px");
+		tkBoxes.style("min-height",maxRankBox+"px");*/
 	}
 	resizeFeed(); //when initializing on mobile
 
