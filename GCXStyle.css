@@ -57,27 +57,6 @@
 	pointer-events:none;
 }
 
-#ng-app .resourceBoxes .title{
-	color:rgb(100,100,100);
-	font-family:arial;
-	font-size:13px;
-	font-weight:normal;
-	width:100%;
-}
-
-#ng-app .metroSelect{
-	width:100%;
-	min-width:415px;
-	height:auto;
-	background:#fffffff;
-	padding:0px;
-	clear:left;
-	margin:0px;
-	position:relative;
-	left:0px;
-	top:0px;
-	overflow:hidden;
-}
 
 #ng-app .no-select{
 -webkit-touch-callout: none;
@@ -88,23 +67,6 @@
 user-select: none;
 }
 
-#ng-app .resourceBoxes{
-	width:85%;
-	margin-left:0%;
-	padding:10px 0px 15px 0px;
-	margin-bottom:12px;
-	float:left;
-	max-width:950px;
-	border:0px solid #d1d1d1;
-}
-
-#ng-app .resourceBoxes.full{
-	width:90%;
-}
-
-#ng-app .orange-back{
-	background-color:#FFB33C;
-}
 
 #ng-app .legend-group{
 	border:1px solid #dddddd;
@@ -126,6 +88,7 @@ user-select: none;
 #ng-app .legend-entry{
 	height:16px;
 	margin:0px 0px 5px 0px;
+	white-space:nowrap;
 }
 
 #ng-app .legend-swatch{
@@ -133,15 +96,17 @@ user-select: none;
 	height:16px;
 	border-radius:8px;
 	background-color:#999999;
-	float:left;
-	margin-right:5px;
+	display:inline-block;
+	margin-right:0px;
+	top:2px;
+	position:relative;
 }
 
 #ng-app .legend-text{
-	float:left;
+	display:inline-block;
 	font-size:15px;
-	line-height:15px;
-	margin-top:1px;
+	height:16px;
+	margin:0px;
 
 }
 
@@ -149,10 +114,6 @@ user-select: none;
 #ng-app .legend-swatch.cohort3{background-color:rgb(171, 217, 233);}
 #ng-app .legend-swatch.cohort1{background-color:rgb(255, 179, 60);}
 #ng-app .legend-swatch.cohort2{background-color:rgb(254, 224, 144);}
-
-/*#ng-app .resourceBoxes.left{width:55%;}
-#ng-app .resourceBoxes.right{width:30%;}*/
-
 
 
 /**********************************************************************/
@@ -213,58 +174,31 @@ user-select: none;
 #ng-app .metro-card .card-title a{display:block;padding:5px 0px 3px 0px;}
 #ng-app .metro-card.no-content{pointer-events:none;opacity:0.75;padding:5px 10px 3px 10px;}
 #ng-app .metro-card.no-content .card-title{color:#999999; font-weight:normal;}
-#ng-app .metro-card.no-content .card-title:after{content:" (planning in progress)";font-style:italic;}
-/*#ng-app .metro-card.metro-card-isopen .card-title{
-	border-bottom:1px solid #999999;
-	padding:4px 0px 4px 0px;
-	font-size:15px;
-}*/
+#ng-app .metro-card.no-content .card-title:after{content:" (plan in progress)";font-style:italic;}
 
-#ng-app .metro-card .report-item{
-	margin:4px 0px 0px 10px;
-	padding-left:10px;
-	border-left:1px solid #dddddd;
-	float:left;
-}
-#ng-app .metro-card .report-item:first-child{
-	border-left:none;
-	padding-left:0px;
-	margin-left:0px;
-}
-
-#ng-app #gcx-products-inner .metro-card .report-wrap{margin:0px;}
-
-/*#ng-app #gcx-products-inner .metro-card .report-wrap{display:none;}
-#ng-app #gcx-products-inner .metro-card.metro-card-isopen .report-wrap{display:block;}*/
-
-#ng-app .metro-card .report-date{
-	font-size:11px;
-	text-transform:uppercase;
-	margin:5px 0px 3px 0px;
-	color:#666666;
-}
-
-#ng-app .metro-card .report-title{margin-bottom:3px;font-size:13px;}
-#ng-app .metro-card .report-title > a{color:rgb(32, 85, 138);text-decoration:none;}
-#ng-app .metro-card .report-title > a:after, #ng-app .metro-card .card-title > a:after{content:" »";font-size:16px;}
-
-#ng-app .metro-card .report-description{font-size:13px;}
-
-#ng-app #select-metro-area{
-	float:right;
-	max-width:400px;
-	background:#999999;
-	border-radius:5px 5px 0px 0px;
-	padding-bottom:5px;
+#ng-app #select-metro-area-button{
+	background-color: #ffffff;
+	border-radius:0px;
 	cursor:pointer;
-	border:0px solid #dddddd;
-	/*border-width:1px 1px 0px 1px;*/
-	margin-right:0px;
+	border:1px solid #ffffff;
+	border-radius:5px;
+	float:left;
+	padding:2px;
+	margin:0px 3px 0px 3px;
+	font-weight:bold;
 }
-#ng-app.gcx-products-open #select-metro-area{
+
+#ng-app #select-metro-area-button:hover{
+	background-color:rgb(240,240,240);
 	border-color:#dddddd;
-	margin-right:0px;
 }
+
+#ng-app .gcx-menu-button{
+	color:#333333;
+	margin:4px 3px 3px 3px;
+	white-space:nowrap;
+}
+
 
 #ng-app .gray-box-wrap > div{
 	background-color: rgb(240,240,240);
@@ -354,13 +288,13 @@ user-select: none;
 @media (min-width:0px){
 	#ng-app #us-map-wrap{display:none;}
 	#ng-app #gcx-products{width:100%;right:0%;}
-	#ng-app #select-metro-area{display:none;}
+	#ng-app #select-metro-area-button{display:none;}
 	#ng-app div.report-cover{width:48%;}
 }
 
 @media (min-width:480px){
 	#ng-app #us-map-wrap{display:block;}
 	#ng-app #gcx-products{width:60%;right:-101%;}
-	#ng-app #select-metro-area{display:block;}
+	#ng-app #select-metro-area-button{display:block;}
 	#ng-app div.report-cover{width:23%;}
 }
