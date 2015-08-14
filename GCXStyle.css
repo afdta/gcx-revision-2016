@@ -17,7 +17,6 @@
 	padding:0px;
 	margin:0px;
 	color:#333333;
-	overflow:hidden;
 }
 
 #ng-app .group, #ng-app.group{
@@ -283,6 +282,26 @@ user-select: none;
 #ng-app .product-header a{
 	font-weight:normal;
 	text-transform:none;
+}
+
+#ng-app #map-tooltip{
+	 position:absolute;
+	 display:none;
+	 top:0px;
+	 left:0px;
+	 background-color:rgba(255,255,255,0.75);
+	 border:0px solid #dddddd;
+	 border-radius:7px;
+}
+
+#ng-app #map-tooltip a, #ng-app #map-tooltip p{
+	padding:4px 8px 4px 8px;
+	display:block;
+	color:#333333;
+	text-decoration:none;
+	font-size:13px;
+	font-style:italic;
+	line-height:13px;
 }
 
 @media (min-width:0px){

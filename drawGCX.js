@@ -117,8 +117,8 @@
 		})
 		.style({"fill":"none","stroke":"#ffffff","stroke-width":"1px","shape-rendering":"crispEdges"});
 
-
 	var drawDots = function(dat){
+		var tooltip = d3.select("#map-tooltip");
 		var dotGroups = dots.selectAll("g")
 			.data(dat).enter().append("g").classed("dotGroup",true)
 			.attr("transform",function(d,i){
@@ -128,8 +128,19 @@
 			//.attr("xlink:href","http://www.google.com")
 			//.attr("target","_blank");
 		var col = [null,"#FFB33C","#fee090","#abd9e9","#4575b4"];
-		var gcxDots = dotGroups.append("circle")
-			.attr({"cx":0,"cy":0,"r":$scope.mapDim.r})
+
+		dotGroups.each(function(d,i){
+			if(d.plans.length > 0){
+				d3.select(this).append("a").attr("xlink:href",function(d,i){return d.plans[0].url}).attr("target","_blank").append("circle");
+			}
+			else{
+				d3.select(this).append("circle");
+			}
+		});
+
+		var gcxDots = dotGroups.selectAll("circle");
+
+		gcxDots.attr({"cx":0,"cy":0,"r":$scope.mapDim.r})
 		    .style("fill",function(d,i){
 		        var ll = metID[d.id];
 		        return col[ll.Cohort];
@@ -168,6 +179,57 @@
 		    })
 		    .style({"font-size":$scope.mapDim.fs});
 
+		var tipShown = false;
+		var tipTimer;
+		var showTip = function(d,i){
+			clearTimeout(tipTimer);
+
+			var dot = d3.select(this);
+
+			d3.event.stopPropagation();
+
+			var ll = metID[d.id];
+
+			var r = parseInt(dot.attr("r"));
+
+			var x = Math.round(ll.lonlat[0]+r+4)+"px";
+			var y = Math.round(ll.lonlat[1]-r)+"px";
+
+			tooltip.style({"left":x, "top":y});
+
+		    try{
+		      var touchEvent = d3.event.type.search(/touch/i) > -1;
+		    }
+		    catch(e){
+		      var touchEvent = false; //no d3.event if this is triggered programatically
+		    }
+
+		    if(touchEvent){
+		      d3.event.preventDefault();
+		    }
+
+		    tooltip.style("display", "block");
+			tooltip.select("p").remove();
+			tooltip.select("a").remove();
+
+			var url = d.plans.length > 0 ? d.plans[0].url : null;
+
+			if(url){
+				tooltip.append("a").attr({"href":url, "target":"_blank"}).text("Click to view latest plan");
+			}
+			else{
+				tooltip.append("p").text("Planning in progress.")
+			}
+			
+			tipTimer = setTimeout(function(){tooltip.style("display","none")}, 3000);
+		}
+		 
+		gcxDots.on("touchstart",showTip);
+		gcxDots.on("mouseover",showTip);
+		tooltip.on("mouseover",function(){clearTimeout(tipTimer)});
+		tooltip.on("mouseleave",function(){tooltip.style("display","none")});
+
+		    /*
 		labGroups.each(function(d,i){
 			var thiz = d3.select(this);
 			if(d.plans.length > 0){
@@ -206,7 +268,7 @@
 			})
 			l.select("g").style("display","inline");
 
-		})
+		})*/
 
 
 		    //interaction
