@@ -12,8 +12,6 @@
 	var metUniverse = $scope.geo.metroUniverse;
 	var metID = $scope.geo.metros;
 
-	//$scope.gcxmetros = {'M12060':1,'M16700':1,'M16980':1,'M18140':1,'M19780':1,'M24860':1,'M26900':1,'M27260':1,'M31100':1,'M31140':1,'M33340':1,'M33460':1,'M38060':1,'M38900':1,'M40900':1,'M41700':1,'M41740':1,'M45060':1,'M45300':1,'M48620':1,'M42660':1,"M12580":1,"M23420":1,"M26420":1,"M37980":1,"M41620":1,"M41180":1,"M28140":1};
-
 	//fix image src
 	d3.selectAll(".reportCover").attr("src",function(d,i){
 		var img = d3.select(this).attr("src");
@@ -125,8 +123,7 @@
 				var ll = metID[d.id];
 				return "translate("+ll.lonlat[0]+","+ll.lonlat[1]+")";
 			});
-			//.attr("xlink:href","http://www.google.com")
-			//.attr("target","_blank");
+
 		var col = [null,"#FFB33C","#fee090","#abd9e9","#4575b4"];
 
 		dotGroups.each(function(d,i){
@@ -208,7 +205,6 @@
 		      d3.event.preventDefault();
 		    }
 
-		    tooltip.style("display", "block");
 			tooltip.select("p").remove();
 			tooltip.select("a").remove();
 
@@ -220,6 +216,8 @@
 			else{
 				tooltip.append("p").text("Planning in progress.")
 			}
+
+			tooltip.style("display", "block");
 			
 			tipTimer = setTimeout(function(){tooltip.style("display","none")}, 3000);
 		}
@@ -228,73 +226,6 @@
 		gcxDots.on("mouseover",showTip);
 		tooltip.on("mouseover",function(){clearTimeout(tipTimer)});
 		tooltip.on("mouseleave",function(){tooltip.style("display","none")});
-
-		    /*
-		labGroups.each(function(d,i){
-			var thiz = d3.select(this);
-			if(d.plans.length > 0){
-				var a = thiz.append("g").style("display","none").append("a")
-							.attr("xlink:href",function(d,i){
-								return d.plans[0].url;
-							})
-							
-					a.append("rect")
-					.attr({"x":(0-13),"y":(0-13),"width":120,"height":26})
-					.attr({"rx":13,"ry":13, "fill":"#ffffff", "stroke":"#ffffff","stroke-width":"1px"})
-					.style("pointer-events","all");
-					a.append("text")
-					 .style({"font-size":"13px","line-height":"13px"})
-					 .attr({"dy":4, "text-anchor":"start", "dx":-10})
-					 .text("Click to view plan »");				
-			}
-			else{
-				var a = thiz.append("g");
-					a.style("display","none");
-					a.append("rect")
-					.attr({"x":(0-13),"y":(0-13),"width":120,"height":26})
-					.attr({"rx":13,"ry":13, "fill":"#ffffff", "stroke":"#ffffff","stroke-width":"1px"});
-					a.append("text")
-					 .style({"font-size":"13px","line-height":"13px"})
-					 .attr({"dy":4, "text-anchor":"start", "dx":-10})
-					 .text("Plan not available");					
-			}
-		})
-
-		gcxDots.on("mouseover", function(d,i){
-			labGroups.select("g").style("display","none");
-			var id = d.id;
-			var l = labGroups.filter(function(d,i){
-				return d.id === id;
-			})
-			l.select("g").style("display","inline");
-
-		})*/
-
-
-		    //interaction
-			/*gcxDots.on("mouseover",function(d,i){
-			  var m = metID[d];
-			  var thiz = d3.select(this);
-			  var cx = parseFloat(thiz.attr("cx"));
-			  var cy = parseFloat(thiz.attr("cy"));
-			  var r = parseInt(thiz.attr("r"));
-			  var attr = {r:r+8,cx:cx,cy:cy}
-
-			  thiz.transition().duration(250).attr({"r":r+5})
-			});
-
-			gcxDots.on("mouseout",function(d,i){
-				d3.select(this).style({"stroke":"#ffffff","stroke-width":"1px"}).transition().duration(50).attr({"r":$scope.mapDim.r})
-				anno.selectAll(".hoverDot").remove();
-			});
-
-			gcxDots.on("mousedown",function(d,i){
-				d3.event.stopPropagation();
-				if(FEED_CARDS){
-					//display link
-				}
-			});*/
-			
 	}
 
 	var WRAP = d3.select("#ng-app");
@@ -369,7 +300,6 @@
 
 		if(fp){plans.push(fp)}
 		else if(ep){plans.push(ep)}
-		//else{plans.push({title:"Planning in progress", url:null})}
 
 		//need an entry for no plans completed
 		return {id:d.CBSA_Code, name:d.firstcity, plans:plans};
@@ -395,7 +325,6 @@
 		}
 	});
 
-	//var tkBoxes = d3.selectAll(".toolkit-section").select("div");
 	function resizeFeed(){
 		var r1 = FEED.node().getBoundingClientRect();
 		var r2 = FEED_TITLE.node().getBoundingClientRect();

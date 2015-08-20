@@ -1,5 +1,5 @@
 /*clearfix*/
-#ng-app .group:after {
+#ng-app .cFix:after {
   content: "";
   display: table;
   clear: both;
@@ -11,31 +11,33 @@
 	padding-bottom:20px;
 	min-height:120px;
 	min-width:300px;
-	font-size:16px;
+	font-size:15px;
 	font-family:Arial, Sans;
 	font-weight:normal;
 	padding:0px;
 	margin:0px;
 	color:#333333;
+	overflow:hidden;
 }
 
-#ng-app .group, #ng-app.group{
-	border:none;
-	background:none;
-	background-image:none;
-	margin:0px;
-}
-
-#ng-app h1,#ng-app h2,#ng-app h3,#ng-app h4,#ng-app h5, #ng-app p{
+#ng-app p{
 	font-family:Arial;
 	padding:0px;
 	margin:0px;
 	color:#333333;
+	font-size:15px;
+	line-height:normal;
 }
 
 #ng-app p.reading{
 	line-height:1.4em;
 	margin-bottom:1em;
+}
+
+#ng-app p.gcx-section-header{
+	font-size:20px;
+	font-weight:bold;
+	margin:0px 0px 5px 0px;
 }
 
 #ng-app a{
@@ -92,7 +94,7 @@ user-select: none;
 
 #ng-app .legend-swatch{
 	width:16px;
-	height:16px;
+	height:14px;
 	border-radius:8px;
 	background-color:#999999;
 	display:inline-block;
