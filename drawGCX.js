@@ -128,7 +128,10 @@
 
 		dotGroups.each(function(d,i){
 			if(d.plans.length > 0){
-				d3.select(this).append("a").attr("xlink:href",function(d,i){return d.plans[0].url}).attr("target","_blank").append("circle");
+				//remove all link functionality from map
+				//d3.select(this).append("a").attr("xlink:href",function(d,i){return d.plans[0].url}).attr("target","_blank").append("circle");
+				//d3.select(this).append("title").text("Click for latest plan document (PDF)")
+				d3.select(this).append("circle");
 			}
 			else{
 				d3.select(this).append("circle");
@@ -176,118 +179,150 @@
 		    })
 		    .style({"font-size":$scope.mapDim.fs});
 
-		var tipShown = false;
-		var tipTimer;
-		var showTip = function(d,i){
-			clearTimeout(tipTimer);
+		/*
+			var tipShown = false;
+			var tipTimer;
+			var showTip = function(d,i){
+				clearTimeout(tipTimer);
 
-			var dot = d3.select(this);
+				var dot = d3.select(this);
 
-			d3.event.stopPropagation();
+				d3.event.stopPropagation();
 
-			var ll = metID[d.id];
+				var ll = metID[d.id];
 
-			var r = parseInt(dot.attr("r"));
+				var r = parseInt(dot.attr("r"));
 
-			var x = Math.round(ll.lonlat[0]+r+4)+"px";
-			var y = Math.round(ll.lonlat[1]-r)+"px";
+				var x = Math.round(ll.lonlat[0]+r+4)+"px";
+				var y = Math.round(ll.lonlat[1]-r)+"px";
 
-			tooltip.style({"left":x, "top":y});
+				tooltip.style({"left":x, "top":y});
 
-		    try{
-		      var touchEvent = d3.event.type.search(/touch/i) > -1;
-		    }
-		    catch(e){
-		      var touchEvent = false; //no d3.event if this is triggered programatically
-		    }
+			    try{
+			      var touchEvent = d3.event.type.search(/touch/i) > -1;
+			    }
+			    catch(e){
+			      var touchEvent = false; //no d3.event if this is triggered programatically
+			    }
 
-		    if(touchEvent){
-		      d3.event.preventDefault();
-		    }
+			    if(touchEvent){
+			      d3.event.preventDefault();
+			    }
 
-			tooltip.select("p").remove();
-			tooltip.select("a").remove();
+				tooltip.select("p").remove();
+				tooltip.select("a").remove();
 
-			var url = d.plans.length > 0 ? d.plans[0].url : null;
+				var url = d.plans.length > 0 ? d.plans[0].url : null;
 
-			if(url){
-				tooltip.append("a").attr({"href":url, "target":"_blank"}).text("Click to view latest plan");
+				if(url){
+					tooltip.append("a").attr({"href":url, "target":"_blank"}).text("Click to view latest plan");
+				}
+				else{
+					tooltip.append("p").text("Planning in progress.")
+				}
+
+				tooltip.style("display", "block");
+				
+				tipTimer = setTimeout(function(){tooltip.style("display","none")}, 3000);
 			}
-			else{
-				tooltip.append("p").text("Planning in progress.")
-			}
-
-			tooltip.style("display", "block");
-			
-			tipTimer = setTimeout(function(){tooltip.style("display","none")}, 3000);
-		}
-		 
-		gcxDots.on("touchstart",showTip);
-		gcxDots.on("mouseover",showTip);
-		tooltip.on("mouseover",function(){clearTimeout(tipTimer)});
-		tooltip.on("mouseleave",function(){tooltip.style("display","none")});
+			 
+			gcxDots.on("touchstart",showTip);
+			gcxDots.on("mouseover",showTip);
+			tooltip.on("mouseover",function(){clearTimeout(tipTimer)});
+			tooltip.on("mouseleave",function(){tooltip.style("display","none")});
+		*/
 	}
 
 	var WRAP = d3.select("#ng-app");
 	var FEED = d3.select("#gcx-products");
 	var FEEDIN = d3.select("#gcx-products-inner");
-	var FEED_TITLE = d3.select("#feed-header");
-	var FEED_CARDS;
-	var FEED_SHOWN = false;
 
 	//FEED CARDS
 
-	function openClose(oc){
-		if(oc==="open"){
-			FEED_SHOWN = true;
-		}
-		else if(oc==="close"){
-			FEED_SHOWN = false;
-		}
-		else{
-			FEED_SHOWN = !FEED_SHOWN;
-		}
-		if(FEED_SHOWN){resizeFeed();}
-		WRAP.classed("gcx-products-open",FEED_SHOWN);
+	//split vector into matrix with col columns
+	var v2m = function(arr, col){
+        var i=0;
+        var mat = [];
+        var len = arr.length;
+        while(i<len){
+            var j=0;
+            var row = [];
+            while(j<col && (i+j)<len){
+            	row.push(arr[(i+j)])
+                j=j+1;
+            }
+            mat.push(row);
+        	i=i+col;
+        }
+        return mat;
 	}
-	WRAP.on("mousedown",function(){openClose("close")});
-	FEED.on("mousedown",function(){d3.event.stopPropagation();})
+
 
 	var drawCards = function(dat){
-		var cards = FEEDIN.selectAll(".metro-card").data(dat);
-		cards.enter().append("div").classed("metro-card group",true);
-		cards.exit().remove();
-		cards.classed("no-content",function(d,i){
-			return d.plans.length === 0;
-		});
 
-		var titles = cards.selectAll("p.card-title").data(function(d,i){return [d]});
-		titles.enter().append("p").classed("card-title no-select-text",true);
-		titles.exit().remove();
+		var gti = [];
+		var exp = [];
+		var inp = [];
 
-		var links = titles.html(function(d,i){
-			if(d.plans.length === 0){
-				return d.name;
+		for(var i=0; i<dat.length; i++){
+			if(dat[i].plans.length > 0){
+				if(dat[i].plans[0].title=="Global Trade and Investment plan"){
+					gti.push(dat[i]);
+				}
+				else{
+					exp.push(dat[i]);
+				}
 			}
 			else{
-				return '<a href="' + d.plans[0].url + '" target="_blank">' + d.name + " plan</a>"
+				inp.push(dat[i]);
 			}
-		})
+		}
 
-		titles.on("mousedown",function(d,i){
-			var parent = this.parentNode;
-			d3.event.stopPropagation();
-			var thiz = d3.select(parent);
-			var open = !thiz.classed("metro-card-isopen");
-			thiz.classed("metro-card-isopen",open);
-		});
-		d3.select("#ng-app #select-metro-area-button").on("mousedown",function(){
-			d3.event.stopPropagation();
-			FEED_SHOWN = !FEED_SHOWN;
-			openClose(FEED_SHOWN ? "open" : "close");			
-		})
+		var tgti = FEEDIN.select("#gcx-plan-table1").select("tbody");
+		var texp = FEEDIN.select("#gcx-plan-table2").select("tbody");
+		var tinp = FEEDIN.select("#gcx-plan-table3").select("tbody");
 
-		return cards;
+		//gti
+		var row1 = tgti.selectAll("tr").data(v2m(gti, 3));
+		row1.enter().append("tr");
+		row1.exit().remove();
+		var col1 = row1.selectAll("td").data(function(d,i){return d});
+		col1.enter().append("td").append("a");
+		col1.exit().remove();
+
+		col1.select("a")
+		.attr("href", function(d,i){
+			return d.plans[0].url
+		})
+		.attr("target","_blank")
+		.text(function(d,i){return d.name + " »"});
+
+
+		//exports
+		var row2 = texp.selectAll("tr").data(v2m(exp, 3));
+		row2.enter().append("tr");
+		row2.exit().remove();
+		var col2 = row2.selectAll("td").data(function(d,i){return d});
+		col2.enter().append("td").append("a");
+		col2.exit().remove();
+
+		col2.select("a")
+		.attr("href", function(d,i){
+			return d.plans[0].url
+		})
+		.attr("target","_blank")
+		.text(function(d,i){return d.name + " »"});
+
+		//in progress (inp)
+		var row3 = tinp.selectAll("tr").data(v2m(inp, 3));
+		row3.enter().append("tr");
+		row3.exit().remove();
+		var col3 = row3.selectAll("td").data(function(d,i){return d});
+		col3.enter().append("td");
+		col3.exit().remove();
+
+		col3.text(function(d,i){return d.name});
+
 	}
 	//END FEED CARDS
 
@@ -320,32 +355,15 @@
 				else{ var idx = a.name <= b.name ? -1 : 1;}
 				return idx;
 			})
-			FEED_CARDS = drawCards(D);
 			drawDots(D);
+			drawCards(D);
 		}
 	});
 
-	function resizeFeed(){
-		var r1 = FEED.node().getBoundingClientRect();
-		var r2 = FEED_TITLE.node().getBoundingClientRect();
-		try{
-			var h = (r1.bottom - r1.top) - (r2.bottom - r2.top);
-		}
-		catch(e){
-			var h = 500;
-		}
-		finally{
-			FEEDIN.style("height",h+"px");
-		}
-
-	}
-	resizeFeed(); //when initializing on mobile
 
 	//RESIZING
 	window.addEventListener("resize",function(){
 		redraw();
-		resizeFeed(); //to/from narrow viewports
-		}
-	);
+	});
 
 })();

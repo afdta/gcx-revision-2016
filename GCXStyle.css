@@ -26,7 +26,6 @@
 	margin:0px;
 	color:#333333;
 	font-size:15px;
-	line-height:normal;
 }
 
 #ng-app p.reading{
@@ -35,9 +34,9 @@
 }
 
 #ng-app p.gcx-section-header{
-	font-size:20px;
+	font-size:18px;
 	font-weight:bold;
-	margin:0px 0px 5px 0px;
+	margin:0px 0px 8px 2%;
 }
 
 #ng-app a{
@@ -121,37 +120,9 @@ user-select: none;
 
 /*New Styles*/
 #ng-app #gcx-products{
-	width:60%;
-	height:100%;
-	background:rgba(255,255,255,0.9);
-	padding:0px;
-	position:absolute;
-	right:-101%;
-	top:0px;
-	z-index:20;
-
-	-o-transition:right 0.75s;
-	-moz-transition:right 0.75s;
-	-webkit-transition:right 0.75s;
-	transition:right 0.75s;
-
-	-webkit-box-shadow: -2px 0px 10px -1px rgba(0,0,0,0.25);
-	-moz-box-shadow: -2px 0px 10px -1px rgba(0,0,0,0.25);
-	box-shadow: -2px 0px 10px -1px rgba(0,0,0,0.25);
-}
-
-#ng-app.gcx-products-open #gcx-products{
-	right:0%;
-	right:calc(0% - 1px);
 }
 
 #ng-app #gcx-products-inner{
-	position:relative;
-	width:100%;
-	min-height:50px;
-	height:55%;
-	overflow-x:hidden;
-	overflow-y:auto;
 }
 
 /*FEED AREA*/
@@ -195,7 +166,7 @@ user-select: none;
 }
 
 #ng-app .gcx-menu-button{
-	color:#333333;
+	color:#20558a;
 	margin:4px 3px 3px 3px;
 	white-space:nowrap;
 }
@@ -203,6 +174,7 @@ user-select: none;
 
 #ng-app .gray-box-wrap > div{
 	background-color: rgb(240,240,240);
+	background-color: #ffffff;
 	border:1px solid #dddddd;
 	padding:15px 2% 15px 2%;
 }
@@ -276,7 +248,8 @@ user-select: none;
 
 #ng-app .product-header{
 	font-size:15px;
-	margin-top: 1em;
+	margin-top: 8px;
+	line-height:1.4em;
 }
 #ng-app .product-header:first-child{
 	margin-top:0px;
@@ -306,16 +279,48 @@ user-select: none;
 	line-height:13px;
 }
 
+/*table styles*/
+
+#ng-app .product-table-container{
+	padding:5px;
+	margin:5px 0px 20px 0px;
+	border:1px solid #dddddd;
+	border-width:1px 0px 1px 0px;
+}
+
+#ng-app table{
+	border-collapse:collapse;
+	table-layout:fixed;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	border:none;
+}
+
+#ng-app table tbody tr:first-child td, #ng-app table tbody tr:last-child td, #ng-app table tbody tr td{
+	font-weight:normal;
+	color:#333333;
+	background:none;
+	background-image:none;
+	background-color:#ffffff;
+	border:none;
+	vertical-align:top;
+	text-align:left;
+	padding:5px 5px 5px 0px;
+	font-family:arial;
+}
+
+
 @media (min-width:0px){
 	#ng-app #us-map-wrap{display:none;}
-	#ng-app #gcx-products{width:100%;right:0%;}
 	#ng-app #select-metro-area-button{display:none;}
 	#ng-app div.report-cover{width:48%;}
+	#ng-app .gcx-hwidth{width:98%;}
 }
 
 @media (min-width:480px){
 	#ng-app #us-map-wrap{display:block;}
-	#ng-app #gcx-products{width:60%;right:-101%;}
 	#ng-app #select-metro-area-button{display:block;}
 	#ng-app div.report-cover{width:23%;}
+	#ng-app .gcx-hwidth{width:50%;}
 }
