@@ -47,24 +47,12 @@
 
 #ng-app a span{white-space:nowrap;}
 
-#ng-app h3{font-size:130%;text-decoration:none;}
-
 #ng-app text{
 	font-family: Arial, Serif;
 	text-rendering:optimizeLegibility;
 	fill:#333333;
 	font-size:13px;
 	pointer-events:none;
-}
-
-
-#ng-app .no-select{
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
 }
 
 
@@ -126,45 +114,6 @@ user-select: none;
 }
 
 /*FEED AREA*/
-#ng-app .metro-card{
-	margin:5px 5px 0px 10px;
-	padding:0px 10px 0px 10px;
-	background-color:#ffffff;
-	border:1px solid #dddddd;
-	border-radius:5px;
-}
-
-#ng-app #gcx-products-inner .metro-card:first-child{
-	margin-top:15px;
-}
-
-#ng-app #gcx-products-inner .metro-card:last-child{
-	margin-bottom:400px;
-}
-
-#ng-app .metro-card .card-title{font-weight:bold; cursor:pointer;font-size:15px;}
-#ng-app .metro-card .card-title a{display:block;padding:5px 0px 3px 0px;}
-#ng-app .metro-card.no-content{pointer-events:none;opacity:0.75;padding:5px 10px 3px 10px;}
-#ng-app .metro-card.no-content .card-title{color:#999999; font-weight:normal;}
-#ng-app .metro-card.no-content .card-title:after{content:" (plan in progress)";font-style:italic;}
-
-#ng-app #select-metro-area-button{
-	background-color: #ffffff;
-	border-radius:0px;
-	cursor:pointer;
-	border:1px solid #ffffff;
-	border-radius:5px;
-	float:left;
-	padding:2px;
-	margin:0px 3px 0px 3px;
-	font-weight:bold;
-}
-
-#ng-app #select-metro-area-button:hover{
-	background-color:rgb(240,240,240);
-	border-color:#dddddd;
-}
-
 #ng-app .gcx-menu-button{
 	color:#20558a;
 	margin:4px 3px 3px 3px;
