@@ -1,0 +1,38 @@
+Thanks, Alec.  This helps.
+
+ 
+
+The Products of the Exchange section is focused on providing the interim pieces that metros have produced around the plans…but are not the plans themselves.  Perhaps a different title?  They are things like example market assessments, policy memos, implementation plans, etc., from the metros to serve as examples.  These are valuable examples for other metro areas going through the process of developing plans.
+
+ 
+
+I might recommend that we put Export Monitor at the top of the Phase 1: Exports section…and clarify that metro and state profiles can be pulled from there.  A lot of folks go straight for the data and it gets a bit lost in the list of things.  The profiles are things people look to grab quickly but they can't easily find them.  Same with Phase 2: FDI - data link at the top.  
+
+ 
+
+Otherwise, I really like this much better and Ryan and I worked to try to make it simple and clear and easy for metros to access.  Thanks for your work on this.  
+
+ 
+
+Brad
+
+
+
+********
+
+
+
+
+Quick response:
+
+ 
+
+a) the reason to only show the latest plan is that once a metro does the FDI portion, this is combined with exports to form their overall global trade and investment plan.  So, their export plan becomes outdated (obsolete) and the metros don't want these to continue to be posted once they are working from the full, comprehensive plan.
+
+ 
+
+b) the map shows the cities involved, but doesn't really show the types of plans they are doing.  We don't have to have the map be interactive.  It could show the cities in the Exchange based on the stage they are in…and the user could click below to find the latest plan for a given place.  But why not make it easy by allowing the user to click either way?  If it's a problem, no big deal.
+
+ 
+
+c) The plans are what the metros produce, sometimes published by Brookings.  The products Brookings has produced are all the captured learning, tools, research, etc, for metros and other places to use to do their own plans…or the tools that Exchange metros can use (I think).  We were unable to view the latest version remotely, so I haven't seen it.  If you can send it to me some other way, then I can comment more coherently.

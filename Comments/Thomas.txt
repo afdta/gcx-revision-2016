@@ -1,0 +1,40 @@
+FROM THOMAS:
+Hi Alec,
+
+ 
+
+We’re still reviewing the GCI page because it poses some challenges for website migration since those templates are not built to support that type of coding. It also looks like several of the metrics we track throughout the site are broken because of how the page is coded.
+
+ 
+
+With that said, I do have a few questions/comments about the rest of the page. Mostly, I think there is some redundancy here and each section could be more clearly labeled. Right now everything sounds pretty similar and I think it could be hard for a reader to distinguish and find the things that are most important for them.
+
+ 
+
+Here are some questions/thoughts to consider:
+
+·         It doesn’t seem clear enough to title the map, “Metro Area Plans.” The box below, that breaks the plans into “export plans” and “trade and investment plans,” is more clear.
+
+·         It looks like the map is missing documents.  For instance, the map makes it look like Portland has completed their FDI plan, but the only report available for them is the Export plan. Shouldn’t FDI be there too?
+
+·         What’s the point of the redundancy between the map and the box below it? They all link to the same reports. Can you just scrap the map entirely, rename that second section something like, “Metro area plans for global trade and investment,” and list out each city (w/ pdf links) under the two separate categories?
+
+·         The organization/naming of the final three boxes seems a little confusing since they’re all so similar.
+
+·         “The Products of the exchange” section sounds the same as the top two sections. Aren’t they all deliverables of the exchange? And none of them appear to be GCI branded. Are these actually “products of the exchange?
+
+·         “The Exchange Toolkit” section looks good. It’s nice that it’s broken into exports and FDI.
+
+·         Can you rename the “Global Cities Initiative Resources” section to make it more specific? Right now it seems any section on the page could have that name. Maybe call it “Additional Brookings reports and resources on global engagement and competitiveness.”
+
+ 
+
+Let me know if you want to talk through any of this and I will try to get back to you as soon as possible about the coding issue.
+
+ 
+
+Thanks,
+
+ 
+
+Thomas
