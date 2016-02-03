@@ -46,35 +46,29 @@
 		<div style="border:1px solid #dddddd;background-color:#ffffff; min-height:300px;position:relative;clear:both;">
 			<div id="us-map-wrap" style="position:relative;z-index:10">
 				<div class="cFix" style="clear:both;padding:10px 10px 0px 10px;">
-					<div class="legend-group cFix" style="width:35%">
+					<div class="legend-group">
 						<p>Phase 1: Exports</p>
 						<div class="legend-entry cFix">
-							<div class="legend-swatch cohort2"></div>
-							<p class="legend-text">Started in Q1 2015</p>
+							<div class="legend-swatch cohort4"></div>
+							<p class="legend-text">Starting exports Q1 2015</p>
 						</div>
 						
-						<div class="legend-entry cFix" style="clear:both">
-							<div class="legend-swatch cohort1"></div>
-							<p class="legend-text">Completed</p>
-						</div>
-					</div>
-					<div class="legend-group cFix" style="width:55%">
-						<p>Phase 2: FDI</p>
-						<div class="legend-entry cFix">
-							<div class="legend-swatch cohort5"></div>
-							<p class="legend-text">Starting in Q1 2016</p>
-						</div>
-
-						<div class="legend-entry cFix">
-							<div class="legend-swatch cohort4"></div>
-							<p class="legend-text">Started in Q2 2015</p>
-						</div>
-
 						<div class="legend-entry cFix">
 							<div class="legend-swatch cohort3"></div>
-							<p class="legend-text">Completed</p>
+							<p class="legend-text">Completed exports</p>
 						</div>
-
+					</div>
+					<div class="legend-group">
+						<p>Phase 2: FDI</p>
+						<div class="legend-entry cFix">
+							<div class="legend-swatch cohort2"></div>
+							<p class="legend-text">Starting FDI Q2 2015</p>
+						</div>
+						
+						<div class="legend-entry cFix">
+							<div class="legend-swatch cohort1"></div>
+							<p class="legend-text">Completed FDI Q1 2015</p>
+						</div>
 					</div>
 				</div>
 				<div id="us-map" style="margin-top:0px;position:relative;z-index:5;overflow:visible;">
@@ -136,7 +130,7 @@
 					<table id="gcx-plan-table2"><thead></thead><tbody></tbody></table>
 				</div>
 
-				<p>Planning in progress (phase)</p>
+				<p style="font-style:italic;">Planning in progress</p>
 				<div class="product-table-container">
 					<table id="gcx-plan-table3"><thead></thead><tbody></tbody></table>
 				</div>
@@ -202,7 +196,7 @@
 						<a href="http://www.brookings.edu/~/media/Multimedia/Interactives/2013/GCXMedia/TradeAndInvestmentPlans/SanDiego.pdf" target="_blank"><img class="reportCover" src="Covers/SanDiego.png" /></a>
 				</div>
 			</div>
-			<p style="font-size:13px;margin-top:5px;font-style:italic;" class="gcx-hwidth">Note: Minneapolis-St. Paul, Portland, San Antonio, and Seattle also created global trade and investment plans, available for download above.</p>
+			<p style="font-size:13px;margin-top:5px;font-style:italic;" class="gcx-hwidth">Note: Minneapolis-St. Paul, Portland, San Antonio, and Seattle also created global trade and investment plans, available for download below.</p>
 
 			<p style="font-weight:bold;margin:25px 0px 8px 0px">INTERMEDIATE OUTPUTS</p>
 			<p style="font-style:italic;clear:left;margin-bottom:20px;">The following are examples of metro area plan deliverables and resources that have proven effective in the development and implementation of global trade and investment plans.</p>
