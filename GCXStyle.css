@@ -75,34 +75,36 @@
 
 #ng-app .legend-entry{
 	height:16px;
-	margin:0px 0px 5px 0px;
+	margin:0px 25px 5px 0px;
 	white-space:nowrap;
+	float:left;
 }
 
 #ng-app .legend-swatch{
-	width:16px;
+	width:14px;
 	height:14px;
-	border-radius:8px;
+	border-radius:7px;
 	background-color:#999999;
 	display:inline-block;
 	margin-right:0px;
-	top:2px;
+	top:1px;
 	position:relative;
 }
 
 #ng-app .legend-text{
 	display:inline-block;
 	font-size:15px;
-	height:16px;
+	height:15px;
 	margin:0px;
 
 }
 
-#ng-app .legend-swatch.cohort4{background-color:rgb(69, 117, 180);}
-#ng-app .legend-swatch.cohort3{background-color:rgb(171, 217, 233);}
-#ng-app .legend-swatch.cohort1{background-color:rgb(255, 179, 60);}
-#ng-app .legend-swatch.cohort2{background-color:rgb(254, 224, 144);}
+#ng-app .legend-swatch.cohort1{background-color:#4575b4;} /*completed exports*/
+#ng-app .legend-swatch.cohort2{background-color:#74add1;} /*started exports in 2015*/
 
+#ng-app .legend-swatch.cohort3{background-color:#f46d43;} /*completed fdi*/
+#ng-app .legend-swatch.cohort4{background-color:#fdae61;} /*started fdi in 2015*/
+#ng-app .legend-swatch.cohort5{background-color:#fee090;} /*started fdi in 2016*/
 
 /**********************************************************************/
 
