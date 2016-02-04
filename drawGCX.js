@@ -237,7 +237,7 @@
 		inp.push("Phoenix (FDI)");
 		inp.push("Salt Lake (exports)");
 		inp.push("St. Louis (exports)");
-		inp.push("Tampa Bay (exports)");
+		//inp.push("Tampa Bay (exports)");
 		inp.push("Wichita (FDI)");
 
 		var tgti = FEEDIN.select("#gcx-plan-table1").select("tbody");
