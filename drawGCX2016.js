@@ -228,14 +228,9 @@
 		inp.push("Charleston (FDI)");              
 		inp.push("Chicago (FDI)");    
 		inp.push("Fresno (exports)");
-		inp.push("Houston (exports)");
 		inp.push("Indianapolis (FDI)");
-		inp.push("Kansas City (exports)");
 		inp.push("Louisville-Lexington (FDI)");
-		inp.push("Milwaukee (exports)");
-		inp.push("Philadelphia (exports)");
 		inp.push("Phoenix (FDI)");
-		inp.push("Salt Lake (exports)");
 		inp.push("St. Louis (exports)");
 		//inp.push("Tampa Bay (exports)");
 		inp.push("Wichita (FDI)");
