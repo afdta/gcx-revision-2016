@@ -1,0 +1,10 @@
+/*for development only*/
+
+.size-article-fullbleed{
+	margin-left: calc(-31.25vw - 0.83333em);
+	width: 100vw;
+}
+
+p{
+	line-height:1.66em;
+}
