@@ -38,10 +38,10 @@ export default function list_products(dat){
 	inp.push("Chicago (FDI)");    
 	inp.push("Fresno (FDI)");
 	inp.push("Houston (FDI)");
-	inp.push("Indianapolis (FDI)");
 	inp.push("Louisville-Lexington (FDI)");
 	inp.push("Phoenix (FDI)");
 	inp.push("Salt Lake (FDI)");
+	inp.push("Seattle (exports)");
 	inp.push("St. Louis (FDI)");
 	inp.push("Tampa Bay (FDI)");
 	inp.push("Wichita (FDI)");
@@ -83,6 +83,7 @@ export default function list_products(dat){
 	product_group_titles.text(function(d,i){return d})
 						.style("font-weight",function(d,i){return i===0 ? "bold" : "normal"})
 						.style("font-style",function(d,i){return i===1 ? "italic" : "normal"})
+						.classed("gcx-note", function(d,i){return i===1})
 						.style("margin","0px");
 
 
@@ -101,9 +102,14 @@ export default function list_products(dat){
 	var cols = rows.selectAll("td").data(function(d,i){return d});
 	cols.enter().append("td");
 	cols.exit().remove();
-	cols.style({"width":"33%"});
+	cols.style({"width":"33%", "padding":"2px 10px", "vertical-align":"top"});
 
 	cols.each(function(d,i){
+		//custom links
+		var summary_docs = {
+			"M26900": "http://indychamber.com/files/8114/7438/1690/FDI_Executive_Summary_forweb.pdf"
+		};
+		
 		var thiz = d3.select(this);
 		try{
 			if(!d.plans[0].url){
@@ -111,10 +117,28 @@ export default function list_products(dat){
 			}
 			else{
 				thiz.selectAll("a").remove();
-				thiz.append("a")
-					.attr("href", d.plans[0].url)
-					.attr("target","_blank")
-					.text(d.name + " »");				
+				thiz.selectAll("span").remove();
+
+				//accomodate special cases where full and summary plans are available
+				if(d.id in summary_docs){
+					thiz.append("span").text(d.name + " ");
+					thiz.append("a")
+						.attr("href", d.plans[0].url)
+						.attr("target","_blank")
+						.text("Plan");
+					thiz.append("span").text(" & ");
+					thiz.append("a")
+						.attr("href", summary_docs[d.id])
+						.attr("target","_blank")
+						.text("Summary »");	
+					thiz.append("span").text("");				
+				}
+				else{
+					thiz.append("a")
+						.attr("href", d.plans[0].url)
+						.attr("target","_blank")
+						.text(d.name + " »");
+				}				
 			}
 		}
 		catch(e){

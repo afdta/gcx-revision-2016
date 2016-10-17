@@ -6,7 +6,7 @@ div{
 	box-sizing:border-box;
 }
 
-.c-fix{
+.c-fix:after{
 	content: "";
 	display: table;
 	clear: both;
@@ -36,9 +36,13 @@ div{
 }
 
 .gcx-section-header{
-	font-size:1.2em;
+	font-size:1.4em;
 	font-weight:700;
 	margin:0.5em 0em 0em 0em;
+}
+
+.gcx-section-title{
+	margin:2em 0em 0em 0em;
 }
 
 .gcx-milestone{
@@ -49,166 +53,12 @@ div{
 	height:1px;
 }
 
-
-
-@media (min-width:0px){
-	#gcx-jump-menu{
-		float:none;
-		width:calc(100% - 2px);
-		margin-left:0em;
-	}
+.gcx-note{
+	font-size:0.85em;
 }
 
-@media (min-width:480px){
-	#gcx-jump-menu{
-		float:right;
-		width:auto;
-		margin-left:2em;
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#gci-exchange-wrap p.reading{
-	line-height:1.4em;
-	margin-bottom:1em;
-}
-
-#gci-exchange-wrap p.gcx-section-header{
-	font-size:18px;
-	font-weight:bold;
-	margin:0px 0px 8px 2%;
-}
-
-#gci-exchange-wrap a{
-	font-family:Arial;
-	text-decoration:none;
-	color:#20558A;
-}
-
-#gci-exchange-wrap a span{white-space:nowrap;}
-
-#gci-exchange-wrap text{
-	font-family: Arial, Serif;
-	text-rendering:optimizeLegibility;
-	fill:#333333;
-	font-size:13px;
-	pointer-events:none;
-}
-
-
-#gci-exchange-wrap .legend-group{
-	border:1px solid #dddddd;
-	background-color:#ffffff;
-	float:left;
-	padding:10px 2% 10px 2%;
-	width:45%;
-}
-
-#gci-exchange-wrap .legend-group p:first-child{
-	font-size:13px;
-	text-transform:uppercase;
-	margin-bottom:8px;
-	font-weight:bold;
-}
-
-#gci-exchange-wrap .legend-group:last-child{margin-left:-20px;float:right;}
-
-#gci-exchange-wrap .legend-entry{
-	height:16px;
-	margin:0px 25px 5px 0px;
-	white-space:nowrap;
-	float:left;
-}
-
-#gci-exchange-wrap .legend-swatch{
-	width:14px;
-	height:14px;
-	border-radius:7px;
-	background-color:#999999;
-	display:inline-block;
-	margin-right:0px;
-	top:1px;
-	position:relative;
-}
-
-#gci-exchange-wrap .legend-text{
-	display:inline-block;
-	font-size:15px;
-	height:15px;
-	margin:0px;
-
-}
-
-#gci-exchange-wrap .legend-swatch.cohort1{background-color:#4575b4;} /*completed exports*/
-#gci-exchange-wrap .legend-swatch.cohort2{background-color:#74add1;} /*started exports in 2015*/
-
-#gci-exchange-wrap .legend-swatch.cohort3{background-color:#f46d43;} /*completed fdi*/
-#gci-exchange-wrap .legend-swatch.cohort4{background-color:#ffffff;} /*started fdi in 2015*/
-#gci-exchange-wrap .legend-swatch.cohort5{background-color:#fee090;} /*started fdi in 2016*/
-#gci-exchange-wrap .legend-swatch.cohort6{background-color:#fdae61;} /*started fdi in Q3 2016*/
-
-/**********************************************************************/
-
-/*New Styles*/
-#gci-exchange-wrap #gcx-products{
-}
-
-#gci-exchange-wrap #gcx-products-inner{
-}
-
-/*FEED AREA*/
-#gci-exchange-wrap .gcx-menu-button{
-	color:#20558a;
-	margin:4px 3px 3px 3px;
-	white-space:nowrap;
-}
-
-
-#gci-exchange-wrap .gray-box-wrap > div{
-	background-color: rgb(240,240,240);
-	background-color: #ffffff;
-	border:1px solid #dddddd;
-	padding:15px 2% 15px 2%;
-}
-
-
-#gci-exchange-wrap .toolkit-section p:first-child{
-	margin:2px 2px 5px 3px;
-	
-	font-size: 13px;
-	text-transform: uppercase;
-	margin-bottom: 16px;
-	font-weight: bold;
-}
-
-#gci-exchange-wrap .list-o-links a{
-	display:block;
-	position:relative;
-	font-size:15px;
-	text-decoration:none;
-	margin:10px 0px 0px 15px;
-}
-
-#gci-exchange-wrap .list-o-links a:before{
-	position:absolute;
-	left:-12px;
-	content:"• ";
-}
-
-#gci-exchange-wrap div.report-cover{
+/*report covers*/
+div.report-cover{
 	float:left;
 	display:block;
 	width:23%;
@@ -219,7 +69,7 @@ div{
 	overflow:hidden;
 }
 
-#gci-exchange-wrap div.report-cover .overlay{
+div.report-cover .overlay{
 	position:absolute;
 	top:-100%;
 	height:100%;
@@ -231,99 +81,44 @@ div{
     transition: top 0.5s;
 }
 
-#gci-exchange-wrap div.report-cover:hover .overlay{
+div.report-cover:hover .overlay{
 	top:0%;
 }
 
-#gci-exchange-wrap div.report-cover .overlay p{
+div.report-cover .overlay p{
 	padding:5%;
 	font-size:13px;
 	font-weight:bold;
 	background-color:rgba(255,255,255,0.85);
 }
 
-#gci-exchange-wrap div.report-cover a{
+div.report-cover a{
 	display:block;
 	width:100%;
 }
 
-#gci-exchange-wrap .report-cover a img{
+div.report-cover a img{
 	width:100%;
 }
 
-#gci-exchange-wrap .product-header{
-	font-size:15px;
-	margin-top: 8px;
-	line-height:1.4em;
-}
-#gci-exchange-wrap .product-header:first-child{
-	margin-top:0px;
-}
-#gci-exchange-wrap .product-header a{
-	font-weight:normal;
-	text-transform:none;
-}
-
-#gci-exchange-wrap #map-tooltip{
-	 position:absolute;
-	 display:none;
-	 top:0px;
-	 left:0px;
-	 background-color:rgba(255,255,255,0.75);
-	 border:0px solid #dddddd;
-	 border-radius:7px;
-}
-
-#gci-exchange-wrap #map-tooltip a, #gci-exchange-wrap #map-tooltip p{
-	padding:4px 8px 4px 8px;
-	display:block;
-	color:#333333;
-	text-decoration:none;
-	font-size:13px;
-	font-style:italic;
-	line-height:13px;
-}
-
-/*table styles*/
-
-#gci-exchange-wrap .product-table-container{
-	padding:5px;
-	margin:5px 0px 20px 0px;
-	border:1px solid #dddddd;
-	border-width:1px 0px 1px 0px;
-}
-
-#gci-exchange-wrap table{
-	border-collapse:collapse;
-	table-layout:fixed;
-	width:100%;
-	margin:0px;
-	padding:0px;
-	border:none;
-}
-
-#gci-exchange-wrap table tbody tr:first-child td, #gci-exchange-wrap table tbody tr:last-child td, #gci-exchange-wrap table tbody tr td{
-	font-weight:normal;
-	color:#333333;
-	background:none;
-	background-image:none;
-	background-color:#ffffff;
-	border:none;
-	vertical-align:top;
-	text-align:left;
-	padding:5px 5px 5px 0px;
-	font-family:arial;
-}
 
 
 @media (min-width:0px){
-	#gci-exchange-wrap #select-metro-area-button{display:none;}
-	#gci-exchange-wrap div.report-cover{width:48%;}
-	#gci-exchange-wrap .gcx-hwidth{width:98%;}
+	#gcx-jump-menu{
+		float:none;
+		width:calc(100% - 2px);
+		margin-left:0em;
+	}
+	div.report-cover{width:48%;}
+	.gcx-hwidth{width:98%;}
 }
 
 @media (min-width:480px){
-	#gci-exchange-wrap #select-metro-area-button{display:block;}
-	#gci-exchange-wrap div.report-cover{width:23%;}
-	#gci-exchange-wrap .gcx-hwidth{width:50%;}
+	#gcx-jump-menu{
+		float:right;
+		width:auto;
+		margin-left:2em;
+	}
+	div.report-cover{width:23%;}
+	.gcx-hwidth{width:50%;}
 }

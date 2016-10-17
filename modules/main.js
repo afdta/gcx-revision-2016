@@ -1,8 +1,7 @@
 import build_map from "./build-map.js"
 import list_products from "./list-products.js"
 
-var asset_repo = "./";
-
+var asset_repo = "./assets/";
 
 var parser = function(d){
 	var ep = d.Export_Plan !== "" ? {title:"Export plan", url: d.Export_Plan} : null;
@@ -17,9 +16,22 @@ var parser = function(d){
 	return {id:d.CBSA_Code, name:d.firstcity, plans:plans};
 }
 
+var addCoverArt = function(){
+	var imgs = [
+		"los_angeles.png",
+		"minneapolis.png",
+		"portland.png",
+		"syracuse.png",
+		"columbus.png",
+		"san_diego.png"
+	]
+	var covers = d3.selectAll("div.report-cover").select("a").append("img");
+	covers.attr("src", function(d,i){return asset_repo + imgs[i]});
+}
+
 
 function main(){
-	d3.csv((asset_repo + "GCXPlans_11May2016.csv"), parser, function(E,D){
+	d3.csv((asset_repo + "gcx_data.csv"), parser, function(E,D){
 		if(E){
 			console.log(E);
 			//Feed error
@@ -35,18 +47,10 @@ function main(){
 				return idx;
 			})
 			
+			addCoverArt();
 			list_products(D);
 			build_map(document.getElementById("us-map"), D);
 		}
-	});
-}
-
-function main_deprecated(){
-	var asset_repo = "./";
-	//fix image src
-	d3.selectAll(".reportCover").attr("src",function(d,i){
-		var img = d3.select(this).attr("src");
-		return asset_repo + img;
 	});
 }
 
